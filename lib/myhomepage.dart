@@ -1,67 +1,66 @@
 import 'package:flutter/material.dart';
-
+import 'package:zajel_run/businfo.dart';
 import 'package:zajel_run/core/const/colors/colors_app.dart';
-import 'package:zajel_run/core/utils/fontStryle.dart';
-import 'package:zajel_run/customappbar.dart';
 
-import 'package:zajel_run/widgets/BookingDateField.dart';
-import 'package:zajel_run/widgets/CustomTextField.dart';
-import 'package:zajel_run/widgets/advertisements.dart';
+import 'package:zajel_run/homepage.dart';
+import 'package:zajel_run/myprofile.dart';
+import 'package:zajel_run/myticet.dart';
+
 import 'package:zajel_run/widgets/background.dart';
 
-import 'package:zajel_run/widgets/custom_buttom.dart';
-import 'package:zajel_run/widgets/drop_down.dart';
-import 'package:zajel_run/widgets/reservationCard.dart';
-
-class MyHomePage extends StatelessWidget {
+class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key});
 
+  @override
+  State<MyHomePage> createState() => _MyHomePageState();
+}
+
+class _MyHomePageState extends State<MyHomePage> {
+  List<Widget> pages = [
+    const Homepage(),
+    const MyTeicet(),
+    const BusInfo(),
+    const MyProfile(),
+  ];
+  int currenIndex = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       extendBodyBehindAppBar: true,
-      body: Background(
-        ciled: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 30),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const SizedBox(height: 75),
-
-              Customappbar(),
-
-              const SizedBox(height: 25),
-
-              Text(
-                "Let's book Your \nNext Trip!",
-                style: Fontstyle.openSansBold19.copyWith(fontSize: 30),
-              ),
-
-              const SizedBox(height: 20),
-              Reservationcard(),
-              Row(
-                children: [
-                  Text(
-                    'Hot News',
-                    style: Fontstyle.openSansBold19.copyWith(
-                      color: Color(ColorsApp.blackColor),
-                      fontSize: 24,
-                    ),
-                  ),
-                  Spacer(),
-                  Text(
-                    'See All',
-                    style: Fontstyle.openSansBold19.copyWith(
-                      color: Color(ColorsApp.appBarColor),
-                      fontSize: 18,
-                    ),
-                  ),
-                ],
-              ),
-              Advertisements(),
-            ],
+      body: Background(ciled: pages[currenIndex]),
+      bottomNavigationBar: BottomNavigationBar(
+        onTap: (index) {
+          setState(() {
+            currenIndex = index;
+          });
+        },
+        type: BottomNavigationBarType.fixed,
+        currentIndex: currenIndex,
+        elevation: 20,
+        backgroundColor: Color(ColorsApp.bodyColor),
+        selectedItemColor: Color(ColorsApp.appBarColor),
+        selectedFontSize: 14,
+        selectedIconTheme: IconThemeData(size: 35),
+        unselectedFontSize: 14,
+        unselectedIconTheme: IconThemeData(size: 35),
+        unselectedItemColor: Color(ColorsApp.grayColor),
+        unselectedLabelStyle: TextStyle(color: Color(ColorsApp.grayColor)),
+        showUnselectedLabels: true,
+        items: [
+          BottomNavigationBarItem(icon: Icon(Icons.home_work), label: 'Home'),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.airplane_ticket_outlined),
+            label: 'My Ticket',
           ),
-        ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.bus_alert_outlined),
+            label: 'Bus Inf',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.account_circle_outlined),
+            label: 'My Profile',
+          ),
+        ],
       ),
     );
   }

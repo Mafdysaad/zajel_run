@@ -23,7 +23,7 @@ class Background extends StatelessWidget {
             ],
           ),
         ),
-        Positioned.fill(child: ciled),
+        Positioned.fill(child: SingleChildScrollView(child: ciled)),
       ],
     );
   }
