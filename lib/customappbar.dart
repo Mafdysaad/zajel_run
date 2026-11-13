@@ -1,41 +1,43 @@
 import 'package:flutter/material.dart';
+import 'package:zajel_run/core/utils/fontStryle.dart' show Fontstyle;
+import 'package:zajel_run/widgets/circuleshap.dart';
+import 'package:zajel_run/widgets/custom_Avatar%20copy.dart';
 
-class Customappbar extends StatelessWidget implements PreferredSizeWidget {
-  const new({super.key});
+class Customappbar extends StatelessWidget {
+  const Customappbar({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return AppBar(
-      actionsPadding: EdgeInsets.all(10),
-      backgroundColor: Colors.transparent,
-      actions: [Icon(Icons.notifications, color: Colors.white, size: 40)],
-      title: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
+    return SizedBox(
+      height: 75,
+      child: Row(
         children: [
-          Text(
-            "مشوارك",
-            style: TextStyle(
-              color: Colors.white,
-              fontSize: 30,
-              fontWeight: FontWeight.bold,
-            ),
+          CustomAvatar(),
+          SizedBox(width: 15),
+          Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                'Good Moorning ',
+                style: Fontstyle.openSansBold19.copyWith(fontSize: 18),
+              ),
+              Text(
+                "Mafdy Saad",
+                style: Fontstyle.openSansBold19.copyWith(fontSize: 14),
+              ),
+            ],
           ),
-          Icon(
-            Icons.directions_bus_filled_rounded,
-            color: const Color.fromRGBO(255, 154, 21, 1),
-            size: 35,
+          Spacer(),
+          Circlsahap(
+            child: Icon(
+              Icons.notifications_on_outlined,
+              color: Colors.white,
+              size: 30,
+            ),
           ),
         ],
       ),
-      leading: IconButton(
-        onPressed: () {},
-        icon: Icon(Icons.dehaze_sharp, size: 40, color: Colors.white),
-      ),
     );
   }
-
-  @override
-  // TODO: implement preferredSize
-  Size get preferredSize => const Size.fromHeight(kToolbarHeight);
 }
