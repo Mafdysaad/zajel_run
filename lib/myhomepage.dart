@@ -6,7 +6,9 @@ import 'package:zajel_run/customappbar.dart';
 
 import 'package:zajel_run/widgets/BookingDateField.dart';
 import 'package:zajel_run/widgets/CustomTextField.dart';
-import 'package:zajel_run/widgets/custom_News_card.dart';
+import 'package:zajel_run/widgets/advertisements.dart';
+import 'package:zajel_run/widgets/background.dart';
+
 import 'package:zajel_run/widgets/custom_buttom.dart';
 import 'package:zajel_run/widgets/drop_down.dart';
 
@@ -17,177 +19,134 @@ class MyHomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       extendBodyBehindAppBar: true,
-      body: Stack(
-        children: [
-          // Background
-          Positioned.fill(
-            child: Column(
-              children: [
-                Expanded(
-                  flex: 2,
-                  child: Container(color: Color(ColorsApp.appBarColor)),
-                ),
-                Expanded(
-                  flex: 3,
-                  child: Container(color: Color(ColorsApp.bodyColor)),
-                ),
-              ],
-            ),
-          ),
+      body: Background(
+        ciled: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 30),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const SizedBox(height: 75),
 
-          // Main Content
-          Positioned.fill(
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 30),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const SizedBox(height: 75),
+              Customappbar(),
 
-                  Customappbar(),
+              const SizedBox(height: 25),
 
-                  const SizedBox(height: 25),
+              Text(
+                "Let's book Your \nNext Trip!",
+                style: Fontstyle.openSansBold19.copyWith(fontSize: 30),
+              ),
 
-                  Text(
-                    "Let's book Your \nNext Trip!",
-                    style: Fontstyle.openSansBold19.copyWith(fontSize: 30),
+              const SizedBox(height: 20),
+
+              Container(
+                height: 450,
+                decoration: BoxDecoration(
+                  color: Color(ColorsApp.bodyColor),
+                  borderRadius: const BorderRadius.only(
+                    topLeft: Radius.circular(20),
+                    topRight: Radius.circular(20),
                   ),
-
-                  const SizedBox(height: 20),
-
-                  Container(
-                    height: 450,
-                    decoration: BoxDecoration(
-                      color: Color(ColorsApp.bodyColor),
-                      borderRadius: const BorderRadius.only(
-                        topLeft: Radius.circular(20),
-                        topRight: Radius.circular(20),
-                      ),
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: 20,
-                        vertical: 25,
-                      ),
-                      child: Column(
-                        spacing: 15,
-                        children: [
-                          SizedBox(
-                            height: 40,
-                            child: Row(
-                              spacing: 10,
-                              children: [
-                                CustomButtom(
-                                  backgroundColor: Color(ColorsApp.appBarColor),
-                                  textColor: Colors.white,
-                                  title: 'One way',
-                                ),
-                                CustomButtom(
-                                  backgroundColor: Color(
-                                    ColorsApp.backgroundIcon,
-                                  ),
-                                  textColor: Color(ColorsApp.blackColor),
-                                  title: 'Round Trip',
-                                ),
-                              ],
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 20,
+                    vertical: 25,
+                  ),
+                  child: Column(
+                    spacing: 15,
+                    children: [
+                      SizedBox(
+                        height: 40,
+                        child: Row(
+                          spacing: 10,
+                          children: [
+                            CustomButtom(
+                              backgroundColor: Color(ColorsApp.appBarColor),
+                              textColor: Colors.white,
+                              title: 'One way',
                             ),
-                          ),
+                            CustomButtom(
+                              backgroundColor: Color(ColorsApp.backgroundIcon),
+                              textColor: Color(ColorsApp.blackColor),
+                              title: 'Round Trip',
+                            ),
+                          ],
+                        ),
+                      ),
 
-                          Stack(
-                            alignment: Alignment.center,
+                      Stack(
+                        alignment: Alignment.center,
+                        children: [
+                          Column(
                             children: [
-                              Column(
-                                children: [
-                                  CustomTextField(
-                                    title: 'From',
-                                    icon: Icons.send_rounded,
-                                  ),
-                                  SizedBox(height: 20),
-
-                                  CustomTextField(
-                                    title: 'To',
-                                    icon: Icons.location_on_outlined,
-                                  ),
-                                ],
+                              CustomTextField(
+                                title: 'From',
+                                icon: Icons.send_rounded,
                               ),
+                              SizedBox(height: 20),
 
-                              Positioned(
-                                top: 40,
-                                right: 30,
-                                child: Container(
-                                  padding: EdgeInsets.all(8),
-                                  decoration: BoxDecoration(
-                                    color: Colors.white,
-                                    shape: BoxShape.circle,
-                                    border: Border.all(color: Colors.grey),
-                                  ),
-                                  child: Icon(Icons.swap_vert),
-                                ),
+                              CustomTextField(
+                                title: 'To',
+                                icon: Icons.location_on_outlined,
                               ),
                             ],
                           ),
-                          BookingDateField(),
-                          DropDownWidget(
-                            items: ['S Class', 'F Class', 'B Class'],
-                            onChanged: (_) {},
-                            selectedItem: 'S Class',
-                            leadingIcon: Icons.chair_outlined,
-                          ),
-                          CustomButtom(
-                            backgroundColor: Color(ColorsApp.appBarColor),
-                            textColor: Colors.white,
-                            title: 'Search Ticket',
-                            width: double.infinity,
+
+                          Positioned(
+                            top: 40,
+                            right: 30,
+                            child: Container(
+                              padding: EdgeInsets.all(8),
+                              decoration: BoxDecoration(
+                                color: Colors.white,
+                                shape: BoxShape.circle,
+                                border: Border.all(color: Colors.grey),
+                              ),
+                              child: Icon(Icons.swap_vert),
+                            ),
                           ),
                         ],
                       ),
-                    ),
-                  ),
-                  Row(
-                    children: [
-                      Text(
-                        'Hot News',
-                        style: Fontstyle.openSansBold19.copyWith(
-                          color: Color(ColorsApp.blackColor),
-                          fontSize: 24,
-                        ),
+                      BookingDateField(),
+                      DropDownWidget(
+                        items: ['S Class', 'F Class', 'B Class'],
+                        onChanged: (_) {},
+                        selectedItem: 'S Class',
+                        leadingIcon: Icons.chair_outlined,
                       ),
-                      Spacer(),
-                      Text(
-                        'See All',
-                        style: Fontstyle.openSansBold19.copyWith(
-                          color: Color(ColorsApp.appBarColor),
-                          fontSize: 18,
-                        ),
+                      CustomButtom(
+                        backgroundColor: Color(ColorsApp.appBarColor),
+                        textColor: Colors.white,
+                        title: 'Search Ticket',
+                        width: double.infinity,
                       ),
                     ],
                   ),
-                  SizedBox(
-                    height: 160,
-                    child: ListView.builder(
-                      itemCount: 5,
-                      scrollDirection: Axis.horizontal,
-                      itemBuilder: (context, index) {
-                        return Padding(
-                          padding: const EdgeInsets.only(right: 12),
-                          child: SizedBox(
-                            width: MediaQuery.of(context).size.width,
-                            child: CustomNewsCard(
-                              image: const AssetImage('assets/images/1.png'),
-                              title: 'Sundarban Express: Travel, Safety, and Experience',
-                              author: 'Shafiq Khan',
-                              date: '21 Aug, 2025',
-                            ),
-                          ),
-                        );
-                      },
+                ),
+              ),
+              Row(
+                children: [
+                  Text(
+                    'Hot News',
+                    style: Fontstyle.openSansBold19.copyWith(
+                      color: Color(ColorsApp.blackColor),
+                      fontSize: 24,
+                    ),
+                  ),
+                  Spacer(),
+                  Text(
+                    'See All',
+                    style: Fontstyle.openSansBold19.copyWith(
+                      color: Color(ColorsApp.appBarColor),
+                      fontSize: 18,
                     ),
                   ),
                 ],
               ),
-            ),
+              Advertisements(),
+            ],
           ),
-        ],
+        ),
       ),
     );
   }
