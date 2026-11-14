@@ -2,8 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:zajel_run/core/const/colors/colors_app.dart';
 
 class Background extends StatelessWidget {
-  final Widget ciled;
-  const Background({required this.ciled, super.key});
+  final List<Widget> slivers;
+  final int bodyflex, appbarflex;
+
+  const Background({
+    required this.appbarflex,
+    required this.bodyflex,
+    required this.slivers,
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -13,17 +20,19 @@ class Background extends StatelessWidget {
           child: Column(
             children: [
               Expanded(
-                flex: 2,
+                flex: appbarflex,
                 child: Container(color: Color(ColorsApp.appBarColor)),
               ),
               Expanded(
-                flex: 3,
+                flex: bodyflex,
                 child: Container(color: Color(ColorsApp.bodyColor)),
               ),
             ],
           ),
         ),
-        Positioned.fill(child: SingleChildScrollView(child: ciled)),
+        Positioned.fill(
+          child: SafeArea(child: CustomScrollView(slivers: slivers)),
+        ),
       ],
     );
   }

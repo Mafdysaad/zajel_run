@@ -16,27 +16,38 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  List<Widget> pages = [
+  int currentIndex = 0;
+  void onpress() {
+    setState(() {
+      currentIndex = 0;
+    });
+  }
+
+  late final List<Widget> pages = [
     const Homepage(),
-    const MyTeicet(),
+    MyTeicet(onPressed: onpress),
     const BusInfo(),
     const MyProfile(),
   ];
-  int currenIndex = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       extendBodyBehindAppBar: true,
-      body: Background(ciled: pages[currenIndex]),
+
+      body: Background(
+        appbarflex: currentIndex == 0 ? 2 : 1,
+        bodyflex: currentIndex == 0 ? 3 : 2,
+        slivers: [SliverToBoxAdapter(child: pages[currentIndex])],
+      ),
       bottomNavigationBar: BottomNavigationBar(
-        onTap: (index) {
+        onTap: (value) {
           setState(() {
-            currenIndex = index;
+            currentIndex = value;
           });
         },
-        type: BottomNavigationBarType.fixed,
-        currentIndex: currenIndex,
         elevation: 20,
+        currentIndex: currentIndex,
+        type: BottomNavigationBarType.fixed,
         backgroundColor: Color(ColorsApp.bodyColor),
         selectedItemColor: Color(ColorsApp.appBarColor),
         selectedFontSize: 14,
