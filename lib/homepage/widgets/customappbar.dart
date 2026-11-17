@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:zajel_run/core/utils/fontStryle.dart' show Fontstyle;
 import 'package:zajel_run/widgets/circuleshap.dart';
-import 'package:zajel_run/widgets/custom_Avatar%20copy.dart';
+import 'package:zajel_run/profile/widgets/custom_Avatar%20copy.dart';
 
 class Customappbar extends StatelessWidget {
   const Customappbar({super.key});

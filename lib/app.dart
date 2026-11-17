@@ -1,21 +1,21 @@
 import 'package:flutter/material.dart';
-import 'package:zajel_run/businfo.dart';
-import 'package:zajel_run/core/const/colors/colors_app.dart';
+import 'package:zajel_run/busIfo/businfo.dart';
 
-import 'package:zajel_run/homepage.dart';
-import 'package:zajel_run/myprofile.dart';
-import 'package:zajel_run/myticet.dart';
+import 'package:zajel_run/core/const/colors/colors_app.dart';
+import 'package:zajel_run/homepage/homepage.dart';
+import 'package:zajel_run/profile/myprofile.dart';
+import 'package:zajel_run/ticket/myticet.dart';
 
 import 'package:zajel_run/widgets/background.dart';
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key});
+class App extends StatefulWidget {
+  const App({super.key});
 
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  State<App> createState() => _MyHomePageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _MyHomePageState extends State<App> {
   int currentIndex = 0;
   void onpress() {
     setState(() {

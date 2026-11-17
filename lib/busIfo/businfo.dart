@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:zajel_run/widgets/businfoitem.dart';
-import 'package:zajel_run/widgets/header.dart';
-import 'package:zajel_run/widgets/searchforbus.dart';
+import 'package:zajel_run/busIfo/widgets/businfoitem.dart';
+import 'package:zajel_run/ticket/widgets/header.dart';
+import 'package:zajel_run/busIfo/widgets/searchforbus.dart';
 
 class BusInfo extends StatelessWidget {
   const new({super.key});

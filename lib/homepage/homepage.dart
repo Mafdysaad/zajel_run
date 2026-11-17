@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:zajel_run/core/const/colors/colors_app.dart' show ColorsApp;
 import 'package:zajel_run/core/utils/fontStryle.dart';
-import 'package:zajel_run/customappbar.dart';
-import 'package:zajel_run/widgets/advertisements.dart';
-import 'package:zajel_run/widgets/reservationCard.dart';
+import 'package:zajel_run/homepage/widgets/customappbar.dart';
+import 'package:zajel_run/homepage/widgets/advertisements.dart';
+import 'package:zajel_run/homepage/widgets/reservationCard.dart';
 
 class Homepage extends StatelessWidget {
   const new({super.key});

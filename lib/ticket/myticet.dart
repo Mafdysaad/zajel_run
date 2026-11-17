@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:zajel_run/core/utils/fontStryle.dart';
-import 'package:zajel_run/modles/ticketmodel.dart';
-import 'package:zajel_run/ticetdatiels.dart';
-import 'package:zajel_run/widgets/TicketCard.dart';
-import 'package:zajel_run/widgets/circuleshap.dart';
-import 'package:zajel_run/widgets/customtickettabs.dart';
-import 'package:zajel_run/widgets/header.dart';
+
+import 'package:zajel_run/ticket/modles/ticketmodel.dart';
+import 'package:zajel_run/ticket/widgets/ticetdatiels.dart';
+import 'package:zajel_run/ticket/widgets/TicketCard.dart';
+
+import 'package:zajel_run/ticket/widgets/customtickettabs.dart';
+import 'package:zajel_run/ticket/widgets/header.dart';
 
 class MyTeicet extends StatefulWidget {
   final VoidCallback onPressed;

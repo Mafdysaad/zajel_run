@@ -4,9 +4,10 @@ import 'package:zajel_run/widgets/BookingDateField.dart';
 import 'package:zajel_run/widgets/CustomTextField.dart';
 import 'package:zajel_run/widgets/custom_buttom.dart';
 import 'package:zajel_run/widgets/drop_down.dart';
+import 'package:zajel_run/reservation/reservationpage.dart';
 
 class Reservationcard extends StatelessWidget {
-  const new({super.key});
+  const Reservationcard({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -33,11 +34,13 @@ class Reservationcard extends StatelessWidget {
                     backgroundColor: Color(ColorsApp.appBarColor),
                     textColor: Colors.white,
                     title: 'One way',
+                    onpressed: () {},
                   ),
                   CustomButtom(
                     backgroundColor: Color(ColorsApp.backgroundIcon),
                     textColor: Color(ColorsApp.blackColor),
                     title: 'Round Trip',
+                    onpressed: () {},
                   ),
                 ],
               ),
@@ -85,6 +88,14 @@ class Reservationcard extends StatelessWidget {
               textColor: Colors.white,
               title: 'Search Ticket',
               width: double.infinity,
+              onpressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const Reservationpage(),
+                  ),
+                );
+              },
             ),
           ],
         ),

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:zajel_run/core/const/colors/colors_app.dart';
 import 'package:zajel_run/core/utils/fontStryle.dart';
-import 'package:zajel_run/widgets/accountItems.dart';
-import 'package:zajel_run/widgets/custom_Avatar%20copy.dart';
-import 'package:zajel_run/widgets/header.dart';
+import 'package:zajel_run/profile/widgets/accountItems.dart';
+import 'package:zajel_run/profile/widgets/custom_Avatar%20copy.dart';
+import 'package:zajel_run/ticket/widgets/header.dart';
 
 class MyProfile extends StatelessWidget {
   const new({super.key});

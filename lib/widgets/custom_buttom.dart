@@ -5,6 +5,7 @@ class CustomButtom extends StatelessWidget {
   final Color backgroundColor;
   final Color textColor;
   final String title;
+  final Function()? onpressed;
   final double? width;
 
   const CustomButtom({
@@ -12,6 +13,7 @@ class CustomButtom extends StatelessWidget {
     required this.textColor,
     required this.title,
     this.width,
+    this.onpressed,
     super.key,
   });
 
@@ -21,7 +23,7 @@ class CustomButtom extends StatelessWidget {
       height: 55,
       width: width,
       child: ElevatedButton(
-        onPressed: () {},
+        onPressed: onpressed,
         style: ElevatedButton.styleFrom(
           backgroundColor: backgroundColor,
           foregroundColor: textColor,

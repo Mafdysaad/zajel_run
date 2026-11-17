@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:zajel_run/myHomePage.dart';
+import 'package:zajel_run/app.dart';
 
 void main() {
   runApp(const MyApp());
@@ -33,7 +33,7 @@ class MyApp extends StatelessWidget {
         // tested with just a hot reload.
         colorScheme: .fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: const MyHomePage(),
+      home: const App(),
     );
   }
 }

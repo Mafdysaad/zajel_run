@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:zajel_run/modles/ticketmodel.dart';
+import 'package:zajel_run/ticket/modles/ticketmodel.dart';
 
-class TicketCard extends StatelessWidget {
+class Slectedticketcard extends StatelessWidget {
   final TicketModel ticket;
 
-  const TicketCard({super.key, required this.ticket});
+  const Slectedticketcard({super.key, required this.ticket});
 
   static const Color mainColor = Color(0xFF075967);
 
@@ -18,31 +18,6 @@ class TicketCard extends StatelessWidget {
       ),
       child: Column(
         children: [
-          // Header
-          Padding(
-            padding: const EdgeInsets.all(18),
-            child: Row(
-              children: [
-                Expanded(
-                  child: Text(
-                    ticket.companyName,
-                    style: const TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                      color: Color(0xFF18202E),
-                    ),
-                  ),
-                ),
-                Text(
-                  '${ticket.seatClass} | ${ticket.seatNumber}',
-                  style: TextStyle(fontSize: 15, color: Colors.grey.shade600),
-                ),
-              ],
-            ),
-          ),
-
-          Divider(height: 1, color: Colors.grey.shade200),
-
           Padding(
             padding: const EdgeInsets.all(18),
             child: Column(

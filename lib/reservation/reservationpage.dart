@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:zajel_run/modles/ticketmodel.dart';
-import 'package:zajel_run/widgets/TicketCard.dart';
+import 'package:zajel_run/ticket/modles/ticketmodel.dart';
 import 'package:zajel_run/widgets/background.dart';
-import 'package:zajel_run/widgets/header.dart';
+import 'package:zajel_run/ticket/widgets/header.dart';
+import 'package:zajel_run/reservation/widgets/slectedTicketcard.dart';
 
-class Ticetdatiels extends StatelessWidget {
+class Reservationpage extends StatelessWidget {
   const new({super.key});
 
   @override
@@ -19,14 +19,15 @@ class Ticetdatiels extends StatelessWidget {
               child: Padding(
                 padding: EdgeInsetsGeometry.symmetric(horizontal: 25),
                 child: Column(
+                  spacing: 20,
                   children: [
                     Header(
-                      title: 'My ticket',
                       onPressed: () {
                         Navigator.pop(context);
                       },
+                      title: "Search Result",
                     ),
-                    TicketCard(
+                    Slectedticketcard(
                       ticket: TicketModel(
                         companyName: 'Jahanabad Express',
                         seatClass: 'S Chair',
