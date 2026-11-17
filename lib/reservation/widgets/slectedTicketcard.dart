@@ -31,6 +31,18 @@ class Slectedticketcard extends StatelessWidget {
                       ticket.fromCity,
                       CrossAxisAlignment.start,
                     ),
+                    Container(
+                      padding: const EdgeInsets.all(12),
+                      decoration: const BoxDecoration(
+                        color: Color(0xFFEAF1F2),
+                        shape: BoxShape.circle,
+                      ),
+                      child: const Icon(
+                        Icons.directions_bus_outlined,
+                        color: mainColor,
+                        size: 23,
+                      ),
+                    ),
                     _station(
                       ticket.toCode,
                       ticket.toCity,
@@ -62,24 +74,7 @@ class Slectedticketcard extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    _time(
-                      ticket.departureTime,
-                      ticket.departureDate,
-                      CrossAxisAlignment.start,
-                    ),
-
-                    Container(
-                      padding: const EdgeInsets.all(12),
-                      decoration: const BoxDecoration(
-                        color: Color(0xFFEAF1F2),
-                        shape: BoxShape.circle,
-                      ),
-                      child: const Icon(
-                        Icons.directions_bus_outlined,
-                        color: mainColor,
-                        size: 23,
-                      ),
-                    ),
+                    _time('Type', 'One Way', CrossAxisAlignment.start),
 
                     _time(
                       ticket.arrivalTime,

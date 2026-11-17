@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:zajel_run/core/const/colors/colors_app.dart';
 
 class Background extends StatelessWidget {
-  final List<Widget> slivers;
+  final Widget child;
   final int bodyflex, appbarflex;
 
   const Background({
     required this.appbarflex,
     required this.bodyflex,
-    required this.slivers,
+    required this.child,
     super.key,
   });
 
@@ -30,9 +30,7 @@ class Background extends StatelessWidget {
             ],
           ),
         ),
-        Positioned.fill(
-          child: SafeArea(child: CustomScrollView(slivers: slivers)),
-        ),
+        SafeArea(child: child),
       ],
     );
   }

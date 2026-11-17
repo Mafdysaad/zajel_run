@@ -66,13 +66,6 @@ class _HorizontalCalendarState extends State<HorizontalCalendar> {
                     ),
                   ),
                   const SizedBox(height: 4),
-                  Text(
-                    '${date.month}',
-                    style: TextStyle(
-                      fontSize: 11,
-                      color: isSelected ? Colors.white : Colors.grey,
-                    ),
-                  ),
                 ],
               ),
             ),

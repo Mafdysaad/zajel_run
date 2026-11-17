@@ -8,20 +8,30 @@ class BusInfo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 25),
-        child: Column(
-          spacing: 20,
-          children: [
-            Header(title: 'Bus Info', onPressed: () {}),
-            SizedBox(height: 10),
-            Searchforbus(),
-            Businfoitem(title: "Al Nardine", onTap: () {}),
-            Businfoitem(title: "Al Nardine", onTap: () {}),
-            Businfoitem(title: "Al Nardine", onTap: () {}),
-          ],
-        ),
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 25),
+      child: Column(
+        spacing: 20,
+        children: [
+          Header(title: 'Bus Info', onPressed: () {}),
+          SizedBox(height: 10),
+          Searchforbus(),
+          Expanded(
+            child: CustomScrollView(
+              slivers: [
+                SliverToBoxAdapter(
+                  child: Column(
+                    children: [
+                      Businfoitem(title: "Al Nardine", onTap: () {}),
+                      Businfoitem(title: "Al Nardine", onTap: () {}),
+                      Businfoitem(title: "Al Nardine", onTap: () {}),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
       ),
     );
   }

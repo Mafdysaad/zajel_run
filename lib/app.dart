@@ -37,7 +37,7 @@ class _MyHomePageState extends State<App> {
       body: Background(
         appbarflex: currentIndex == 0 ? 2 : 1,
         bodyflex: currentIndex == 0 ? 3 : 2,
-        slivers: [SliverToBoxAdapter(child: pages[currentIndex])],
+        child: pages[currentIndex],
       ),
       bottomNavigationBar: BottomNavigationBar(
         onTap: (value) {

@@ -85,56 +85,69 @@ class _MyTeicetState extends State<MyTeicet> {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 25),
-      child: SafeArea(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            // Header
-            Header(title: 'My ticket', onPressed: widget.onPressed),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          // Header
+          Header(title: 'My ticket', onPressed: widget.onPressed),
 
-            const SizedBox(height: 30),
+          const SizedBox(height: 30),
 
-            // Tabs
-            CustomTicketTabs(
-              onTabChanged: (val) {
-                setState(() {
-                  selectedIndex = val;
-                });
-              },
-            ),
+          Expanded(
+            child: CustomScrollView(
+              slivers: [
+                SliverToBoxAdapter(
+                  child: Column(
+                    children: [
+                      // Tabs
+                      CustomTicketTabs(
+                        onTabChanged: (val) {
+                          setState(() {
+                            selectedIndex = val;
+                          });
+                        },
+                      ),
 
-            const SizedBox(height: 20),
+                      const SizedBox(height: 20),
 
-            // Tickets
-            if (currentTickets.isEmpty)
-              const Padding(
-                padding: EdgeInsets.symmetric(vertical: 40),
-                child: Center(
-                  child: Text(
-                    'No Tickets Found',
-                    style: TextStyle(fontSize: 16, color: Colors.grey),
-                  ),
-                ),
-              )
-            else
-              ...currentTickets.map(
-                (ticket) => Padding(
-                  padding: const EdgeInsets.only(bottom: 20),
-                  child: InkWell(
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const Ticetdatiels(),
+                      // Tickets
+                      if (currentTickets.isEmpty)
+                        const Padding(
+                          padding: EdgeInsets.symmetric(vertical: 40),
+                          child: Center(
+                            child: Text(
+                              'No Tickets Found',
+                              style: TextStyle(
+                                fontSize: 16,
+                                color: Colors.grey,
+                              ),
+                            ),
+                          ),
+                        )
+                      else
+                        ...currentTickets.map(
+                          (ticket) => Padding(
+                            padding: const EdgeInsets.only(bottom: 20),
+                            child: InkWell(
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => const Ticetdatiels(),
+                                  ),
+                                );
+                              },
+                              child: TicketCard(ticket: ticket),
+                            ),
+                          ),
                         ),
-                      );
-                    },
-                    child: TicketCard(ticket: ticket),
+                    ],
                   ),
                 ),
-              ),
-          ],
-        ),
+              ],
+            ),
+          ),
+        ],
       ),
     );
   }
