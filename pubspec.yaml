@@ -36,6 +36,12 @@ dependencies:
   cupertino_icons: ^1.0.8
   syncfusion_flutter_datepicker: ^35.1.42
   qr_flutter: ^4.1.0
+  google_maps_flutter: ^2.19.0
+  location: ^10.2.0
+  flutter_polyline_points: 
+  http: 
+  uuid: 
+  go_router: ^18.1.4
 
 dev_dependencies:
   flutter_test:

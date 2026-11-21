@@ -33,7 +33,6 @@ class _MyHomePageState extends State<App> {
   Widget build(BuildContext context) {
     return Scaffold(
       extendBodyBehindAppBar: true,
-
       body: Background(
         appbarflex: currentIndex == 0 ? 2 : 1,
         bodyflex: currentIndex == 0 ? 3 : 2,

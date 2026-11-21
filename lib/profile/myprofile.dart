@@ -20,6 +20,7 @@ class MyProfile extends StatelessWidget {
               slivers: [
                 SliverToBoxAdapter(
                   child: Column(
+                    spacing: 20,
                     children: [
                       SizedBox(height: 180, child: CustomAvatar()),
                       Text(

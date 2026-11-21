@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:zajel_run/core/const/colors/colors_app.dart';
+import 'package:zajel_run/reservation/passaneger_detiails.dart';
 import 'package:zajel_run/reservation/widgets/bus_seat_selector.dart';
 import 'package:zajel_run/reservation/widgets/legend_item.dart';
 import 'package:zajel_run/reservation/widgets/seat_catigo.dart';
@@ -86,7 +87,15 @@ class SlecetYourSeat extends StatelessWidget {
                               textColor: Colors.white,
                               title: "Select Your Seat",
                               width: double.infinity,
-                              onpressed: () {},
+                              onpressed: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) =>
+                                        const PassanegerDetiails(),
+                                  ),
+                                );
+                              },
                             ),
                             SizedBox(height: 10),
                           ],
