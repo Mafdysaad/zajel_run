@@ -49,7 +49,7 @@ class Sinup extends StatelessWidget {
             Text(
               "Get Started Today",
               textAlign: TextAlign.left,
-              style: Fontstyle.openSansBold19.copyWith(fontSize: 40),
+              style: Fontstyle.openSansBold19.copyWith(fontSize: 38),
             ),
           ],
         ),
@@ -74,11 +74,12 @@ class Sinup extends StatelessWidget {
               backgroundColor: Color(ColorsApp.appBarColor),
               width: double.infinity,
               textColor: Colors.white,
-              title: 'Login',
-              onpressed: () {},
+              title: 'Create Account',
+              onpressed: () {
+                context.push(Approutes.kverifyAccount);
+              },
             ),
             CustomOR(),
-
             SizedBox(height: 20),
             Customoption(),
             SizedBox(height: 30),

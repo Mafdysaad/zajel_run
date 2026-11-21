@@ -29,7 +29,7 @@ class LoginPage extends StatelessWidget {
             Text(
               "Welcome Back",
               textAlign: TextAlign.left,
-              style: Fontstyle.openSansBold19.copyWith(fontSize: 40),
+              style: Fontstyle.openSansBold19.copyWith(fontSize: 38),
             ),
           ],
         ),
@@ -44,7 +44,9 @@ class LoginPage extends StatelessWidget {
             CustomRememberMe(
               rememberMe: true,
               onRememberChanged: (v) {},
-              onForgotPasswordTap: () {},
+              onForgotPasswordTap: () {
+                context.push(Approutes.kForgetpassword);
+              },
             ),
             SizedBox(height: 30),
             CustomButtom(
@@ -55,7 +57,6 @@ class LoginPage extends StatelessWidget {
               onpressed: () {},
             ),
             CustomOR(),
-
             SizedBox(height: 20),
             Customoption(),
             SizedBox(height: 30),

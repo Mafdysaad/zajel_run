@@ -23,7 +23,7 @@ class Cusomsingup extends StatelessWidget {
             textone,
             textAlign: TextAlign.end,
             style: Fontstyle.openSansBold19.copyWith(
-              fontSize: 18,
+              fontSize: 14,
               color: Colors.black,
             ),
           ),
@@ -34,7 +34,7 @@ class Cusomsingup extends StatelessWidget {
               child: Text(
                 textwo,
                 style: Fontstyle.openSansBold19.copyWith(
-                  fontSize: 19,
+                  fontSize: 15,
                   color: Color(0xFF17677A),
                 ),
               ),

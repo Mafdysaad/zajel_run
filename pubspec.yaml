@@ -42,6 +42,7 @@ dependencies:
   http: 
   uuid: 
   go_router: ^18.1.4
+  pinput: ^6.0.2
 
 dev_dependencies:
   flutter_test:
