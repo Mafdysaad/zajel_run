@@ -4,6 +4,7 @@ import 'package:zajel_run/auth/forgetpassword.dart';
 import 'package:zajel_run/auth/login.dart';
 import 'package:zajel_run/auth/sinup.dart';
 import 'package:zajel_run/auth/verify_account.dart';
+import 'package:zajel_run/splash/splash.dart';
 
 abstract class Approutes {
   static String kHomeRoute = '/homepage';
@@ -15,7 +16,7 @@ abstract class Approutes {
   // GetIt getIt = GetIt.instance;
   static GoRouter routes = GoRouter(
     routes: [
-      GoRoute(path: '/', builder: (context, state) => const LoginPage()),
+      GoRoute(path: '/', builder: (context, state) => const Splash()),
       GoRoute(path: kHomeRoute, builder: (context, state) => const App()),
       GoRoute(path: kSinup, builder: (context, state) => const Sinup()),
       GoRoute(path: kLogin, builder: (context, state) => const LoginPage()),

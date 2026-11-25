@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:zajel_run/core/utils/fontStryle.dart';
 
 class LegendItem extends StatelessWidget {
   final String title;
@@ -24,7 +25,11 @@ class LegendItem extends StatelessWidget {
           ),
         ),
 
-        Text(title, style: const TextStyle(fontSize: 13)),
+        Text(
+          title,
+          style: Fontstyle.openSansBold14(context)
+              .copyWith(color: Colors.black),
+        ),
       ],
     );
   }

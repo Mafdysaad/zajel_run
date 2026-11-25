@@ -21,7 +21,7 @@ class Reservationcard extends StatelessWidget {
         ),
       ),
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 25),
+        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 25),
         child: Column(
           spacing: 15,
           children: [
@@ -51,12 +51,17 @@ class Reservationcard extends StatelessWidget {
               children: [
                 Column(
                   children: [
-                    CustomTextField(title: 'From', icon: Icons.send_rounded),
+                    CustomTextField(
+                      title: 'From',
+                      icon: Icons.send_rounded,
+                      keyboardtype: TextInputType.streetAddress,
+                    ),
                     SizedBox(height: 20),
 
                     CustomTextField(
                       title: 'To',
                       icon: Icons.location_on_outlined,
+                      keyboardtype: TextInputType.streetAddress,
                     ),
                   ],
                 ),

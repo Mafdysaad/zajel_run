@@ -37,7 +37,7 @@ class Reservationpage extends StatelessWidget {
                       spacing: 20,
                       children: [
                         Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 25),
+                          padding: const EdgeInsets.symmetric(horizontal: 20),
                           child: Slectedticketcard(
                             ticket: TicketModel(
                               companyName: 'Jahanabad Express',

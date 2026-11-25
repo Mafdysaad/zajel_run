@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:zajel_run/core/utils/responsive_size.dart';
 
 class CustomTicketTabs extends StatefulWidget {
   final Function(int index) onTabChanged;
@@ -36,7 +37,7 @@ class _CustomTicketTabsState extends State<CustomTicketTabs> {
                   tabs[index],
                   style: TextStyle(
                     color: isSelected ? Colors.white : Colors.white70,
-                    fontSize: 20,
+                    fontSize: responsivesize(context, fontsize: 20),
                     fontWeight: isSelected
                         ? FontWeight.bold
                         : FontWeight.normal,

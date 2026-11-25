@@ -18,14 +18,8 @@ class Customappbar extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
-                'Good Moorning ',
-                style: Fontstyle.openSansBold19.copyWith(fontSize: 18),
-              ),
-              Text(
-                "Mafdy Saad",
-                style: Fontstyle.openSansBold19.copyWith(fontSize: 14),
-              ),
+              Text('Good Moorning ', style: Fontstyle.openSansBold18(context)),
+              Text("Mafdy Saad", style: Fontstyle.openSansBold14(context)),
             ],
           ),
           Spacer(),

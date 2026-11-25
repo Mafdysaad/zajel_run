@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:zajel_run/core/utils/fontStryle.dart';
 
 class ContactInfor extends StatelessWidget {
   const new({super.key});
@@ -21,16 +22,14 @@ class ContactInfor extends StatelessWidget {
                 Expanded(
                   child: Text(
                     "Email Address",
-                    style: TextStyle(fontSize: 18, color: Colors.grey.shade600),
+                    style: Fontstyle.openSansRegular18(context)
+                        .copyWith(color: Colors.grey.shade600),
                   ),
                 ),
                 Text(
                   'mafdysaad366@gamil.com',
-                  style: TextStyle(
-                    fontSize: 15,
-                    fontWeight: FontWeight.bold,
-                    color: Color(0xFF18202E),
-                  ),
+                  style: Fontstyle.openSansBold15(context)
+                      .copyWith(color: Color(0xFF18202E)),
                 ),
               ],
             ),
@@ -42,16 +41,14 @@ class ContactInfor extends StatelessWidget {
                 Expanded(
                   child: Text(
                     "Phone Number",
-                    style: TextStyle(fontSize: 18, color: Colors.grey.shade600),
+                    style: Fontstyle.openSansRegular18(context)
+                        .copyWith(color: Colors.grey.shade600),
                   ),
                 ),
                 Text(
                   '01022102989',
-                  style: TextStyle(
-                    fontSize: 15,
-                    fontWeight: FontWeight.bold,
-                    color: Color(0xFF18202E),
-                  ),
+                  style: Fontstyle.openSansBold15(context)
+                      .copyWith(color: Color(0xFF18202E)),
                 ),
               ],
             ),
@@ -63,16 +60,14 @@ class ContactInfor extends StatelessWidget {
                 Expanded(
                   child: Text(
                     "Identity Number",
-                    style: TextStyle(fontSize: 18, color: Colors.grey.shade600),
+                    style: Fontstyle.openSansRegular18(context)
+                        .copyWith(color: Colors.grey.shade600),
                   ),
                 ),
                 Text(
                   '12345678910112',
-                  style: TextStyle(
-                    fontSize: 15,
-                    fontWeight: FontWeight.bold,
-                    color: Color(0xFF18202E),
-                  ),
+                  style: Fontstyle.openSansBold15(context)
+                      .copyWith(color: Color(0xFF18202E)),
                 ),
               ],
             ),

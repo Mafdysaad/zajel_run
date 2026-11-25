@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:zajel_run/core/utils/fontStryle.dart';
 import 'package:zajel_run/ticket/modles/ticketmodel.dart';
 
 class Slectedticketcard extends StatelessWidget {
@@ -30,6 +31,7 @@ class Slectedticketcard extends StatelessWidget {
                       ticket.fromCode,
                       ticket.fromCity,
                       CrossAxisAlignment.start,
+                      context,
                     ),
                     Container(
                       padding: const EdgeInsets.all(12),
@@ -47,6 +49,7 @@ class Slectedticketcard extends StatelessWidget {
                       ticket.toCode,
                       ticket.toCity,
                       CrossAxisAlignment.end,
+                      context,
                     ),
                   ],
                 ),
@@ -74,12 +77,13 @@ class Slectedticketcard extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    _time('Type', 'One Way', CrossAxisAlignment.start),
+                    _time('Type', 'One Way', CrossAxisAlignment.start, context),
 
                     _time(
                       ticket.arrivalTime,
                       ticket.arrivalDate,
                       CrossAxisAlignment.end,
+                      context,
                     ),
                   ],
                 ),
@@ -88,7 +92,8 @@ class Slectedticketcard extends StatelessWidget {
 
                 Text(
                   'Duration ${ticket.duration}',
-                  style: TextStyle(color: Colors.grey.shade600, fontSize: 14),
+                  style: Fontstyle.openSansRegular14(context)
+                      .copyWith(color: Colors.grey.shade600),
                 ),
               ],
             ),
@@ -98,7 +103,12 @@ class Slectedticketcard extends StatelessWidget {
     );
   }
 
-  Widget _station(String code, String city, CrossAxisAlignment alignment) {
+  Widget _station(
+    String code,
+    String city,
+    CrossAxisAlignment alignment,
+    context,
+  ) {
     return Column(
       crossAxisAlignment: alignment,
       children: [
@@ -111,22 +121,28 @@ class Slectedticketcard extends StatelessWidget {
           ),
         ),
         const SizedBox(height: 5),
-        Text(city, style: TextStyle(color: Colors.grey.shade600, fontSize: 14)),
+        Text(
+          city,
+          style: Fontstyle.openSansRegular14(context)
+              .copyWith(color: Colors.grey.shade600),
+        ),
       ],
     );
   }
 
-  Widget _time(String time, String date, CrossAxisAlignment alignment) {
+  Widget _time(
+    String time,
+    String date,
+    CrossAxisAlignment alignment,
+    context,
+  ) {
     return Column(
       crossAxisAlignment: alignment,
       children: [
         Text(
           time,
-          style: const TextStyle(
-            fontSize: 16,
-            fontWeight: FontWeight.bold,
-            color: Color(0xFF18202E),
-          ),
+          style: Fontstyle.openSansBold15(context)
+              .copyWith(color: Color(0xFF18202E)),
         ),
         const SizedBox(height: 5),
         Text(date, style: TextStyle(color: Colors.grey.shade600, fontSize: 13)),

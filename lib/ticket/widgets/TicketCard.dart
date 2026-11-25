@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:zajel_run/core/utils/fontStryle.dart';
+
 import 'package:zajel_run/ticket/modles/ticketmodel.dart';
 
 class TicketCard extends StatelessWidget {
@@ -26,16 +28,14 @@ class TicketCard extends StatelessWidget {
                 Expanded(
                   child: Text(
                     ticket.companyName,
-                    style: const TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                      color: Color(0xFF18202E),
-                    ),
+                    style: Fontstyle.openSansBold18(context)
+                        .copyWith(color: Color(0xFF18202E)),
                   ),
                 ),
                 Text(
                   '${ticket.seatClass} | ${ticket.seatNumber}',
-                  style: TextStyle(fontSize: 15, color: Colors.grey.shade600),
+                  style: Fontstyle.openSansRegular14(context)
+                      .copyWith(color: Colors.grey.shade600),
                 ),
               ],
             ),
@@ -55,11 +55,13 @@ class TicketCard extends StatelessWidget {
                       ticket.fromCode,
                       ticket.fromCity,
                       CrossAxisAlignment.start,
+                      context,
                     ),
                     _station(
                       ticket.toCode,
                       ticket.toCity,
                       CrossAxisAlignment.end,
+                      context,
                     ),
                   ],
                 ),
@@ -118,7 +120,8 @@ class TicketCard extends StatelessWidget {
 
                 Text(
                   'Duration ${ticket.duration}',
-                  style: TextStyle(color: Colors.grey.shade600, fontSize: 14),
+                  style: Fontstyle.openSansRegular14(context)
+                      .copyWith(color: Colors.grey.shade600),
                 ),
               ],
             ),
@@ -128,20 +131,26 @@ class TicketCard extends StatelessWidget {
     );
   }
 
-  Widget _station(String code, String city, CrossAxisAlignment alignment) {
+  Widget _station(
+    String code,
+    String city,
+    CrossAxisAlignment alignment,
+    context,
+  ) {
     return Column(
       crossAxisAlignment: alignment,
       children: [
         Text(
           code,
-          style: const TextStyle(
-            fontSize: 17,
-            fontWeight: FontWeight.bold,
-            color: Color(0xFF18202E),
-          ),
+          style: Fontstyle.openSansBold18(context)
+              .copyWith(color: Color(0xFF18202E)),
         ),
         const SizedBox(height: 5),
-        Text(city, style: TextStyle(color: Colors.grey.shade600, fontSize: 14)),
+        Text(
+          city,
+          style: Fontstyle.openSansRegular14(context)
+              .copyWith(color: Colors.grey.shade600),
+        ),
       ],
     );
   }

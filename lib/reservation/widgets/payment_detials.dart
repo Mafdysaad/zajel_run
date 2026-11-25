@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:zajel_run/core/utils/fontStryle.dart';
 
 class PaymentDetials extends StatelessWidget {
   const new({super.key});
@@ -21,16 +22,14 @@ class PaymentDetials extends StatelessWidget {
                 Expanded(
                   child: Text(
                     "Subtotal",
-                    style: TextStyle(fontSize: 18, color: Colors.grey.shade600),
+                    style: Fontstyle.openSansBold18(context)
+                        .copyWith(color: Colors.grey.shade600),
                   ),
                 ),
                 Text(
                   '80 LE',
-                  style: TextStyle(
-                    fontSize: 15,
-                    fontWeight: FontWeight.bold,
-                    color: Color(0xFF18202E),
-                  ),
+                  style: Fontstyle.openSansBold15(context)
+                      .copyWith(color: Color(0xFF18202E)),
                 ),
               ],
             ),
@@ -42,16 +41,14 @@ class PaymentDetials extends StatelessWidget {
                 Expanded(
                   child: Text(
                     "Tax",
-                    style: TextStyle(fontSize: 18, color: Colors.grey.shade600),
+                    style: Fontstyle.openSansBold18(context)
+                        .copyWith(color: Colors.grey.shade600),
                   ),
                 ),
                 Text(
                   '10 LE',
-                  style: TextStyle(
-                    fontSize: 15,
-                    fontWeight: FontWeight.bold,
-                    color: Color(0xFF18202E),
-                  ),
+                  style: Fontstyle.openSansBold15(context)
+                      .copyWith(color: Color(0xFF18202E)),
                 ),
               ],
             ),
@@ -82,16 +79,14 @@ class PaymentDetials extends StatelessWidget {
                 Expanded(
                   child: Text(
                     "Total",
-                    style: TextStyle(fontSize: 18, color: Colors.grey.shade600),
+                    style: Fontstyle.openSansBold18(context)
+                        .copyWith(color: Colors.grey.shade600),
                   ),
                 ),
                 Text(
                   '90 LE',
-                  style: TextStyle(
-                    fontSize: 15,
-                    fontWeight: FontWeight.bold,
-                    color: Color(0xFF18202E),
-                  ),
+                  style: Fontstyle.openSansBold15(context)
+                      .copyWith(color: Color(0xFF18202E)),
                 ),
               ],
             ),

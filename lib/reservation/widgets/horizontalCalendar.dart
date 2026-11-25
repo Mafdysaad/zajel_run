@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:zajel_run/core/utils/fontStryle.dart';
 
 class HorizontalCalendar extends StatefulWidget {
   final Function(DateTime) onDateSelected;
@@ -59,11 +60,9 @@ class _HorizontalCalendarState extends State<HorizontalCalendar> {
                   const SizedBox(height: 8),
                   Text(
                     '${date.day}',
-                    style: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
-                      color: isSelected ? Colors.white : Colors.black,
-                    ),
+                    style: Fontstyle.openSansBold20(
+                      context,
+                    ).copyWith(color: isSelected ? Colors.white : Colors.black),
                   ),
                   const SizedBox(height: 4),
                 ],

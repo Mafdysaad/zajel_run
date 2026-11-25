@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:zajel_run/core/utils/fontStryle.dart';
 
 class Rowsection extends StatelessWidget {
   final String title, leading;
@@ -11,16 +12,14 @@ class Rowsection extends StatelessWidget {
         Expanded(
           child: Text(
             title,
-            style: TextStyle(fontSize: 15, color: Colors.grey.shade600),
+            style: Fontstyle.openSansRegular14(context)
+                .copyWith(color: Colors.grey.shade600),
           ),
         ),
         Text(
           leading,
-          style: TextStyle(
-            fontSize: 18,
-            fontWeight: FontWeight.bold,
-            color: Color(0xFF18202E),
-          ),
+          style: Fontstyle.openSansBold18(context)
+              .copyWith(color: Color(0xFF18202E)),
         ),
       ],
     );

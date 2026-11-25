@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:zajel_run/core/const/colors/colors_app.dart';
 import 'package:zajel_run/core/utils/fontStryle.dart';
+import 'package:zajel_run/core/utils/responsive_size.dart';
 import 'package:zajel_run/profile/widgets/accountItems.dart';
 import 'package:zajel_run/profile/widgets/custom_Avatar%20copy.dart';
 import 'package:zajel_run/ticket/widgets/header.dart';
@@ -11,7 +12,7 @@ class MyProfile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 25),
+      padding: const EdgeInsets.symmetric(horizontal: 20),
       child: Column(
         children: [
           Header(title: "My Profile", onPressed: () {}),
@@ -25,18 +26,14 @@ class MyProfile extends StatelessWidget {
                       SizedBox(height: 180, child: CustomAvatar()),
                       Text(
                         'Mafdy Saad ',
-                        style: Fontstyle.openSansBold19.copyWith(
-                          fontSize: 23,
-                          color: Color(ColorsApp.blackColor),
-                        ),
+                        style: Fontstyle.openSansBold23(context)
+                            .copyWith(color: Color(ColorsApp.blackColor)),
                       ),
 
                       Text(
                         'MafdySaad366@gmail.com ',
-                        style: Fontstyle.openSansBold19.copyWith(
-                          fontSize: 15,
-                          color: Color(ColorsApp.grayColor),
-                        ),
+                        style: Fontstyle.openSansBold15(context)
+                            .copyWith(color: Color(ColorsApp.grayColor)),
                       ),
                       AccountMenuItem(
                         icon: Icons.account_circle,

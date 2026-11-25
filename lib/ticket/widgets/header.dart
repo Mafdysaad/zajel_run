@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:zajel_run/core/utils/fontStryle.dart';
+import 'package:zajel_run/core/utils/responsive_size.dart';
 import 'package:zajel_run/widgets/circuleshap.dart';
 
 class Header extends StatelessWidget implements PreferredSizeWidget {
@@ -23,7 +24,8 @@ class Header extends StatelessWidget implements PreferredSizeWidget {
           Expanded(
             child: Text(
               title,
-              style: Fontstyle.openSansBold19.copyWith(fontSize: 25),
+              style: Fontstyle.openSansBold19(context)
+                  .copyWith(fontSize: responsivesize(context, fontsize: 25)),
               textAlign: TextAlign.center,
             ),
           ),

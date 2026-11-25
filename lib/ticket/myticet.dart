@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:zajel_run/core/utils/fontStryle.dart';
 
 import 'package:zajel_run/ticket/modles/ticketmodel.dart';
 import 'package:zajel_run/ticket/widgets/ticetdatiels.dart';
@@ -112,15 +113,13 @@ class _MyTeicetState extends State<MyTeicet> {
 
                       // Tickets
                       if (currentTickets.isEmpty)
-                        const Padding(
+                        Padding(
                           padding: EdgeInsets.symmetric(vertical: 40),
                           child: Center(
                             child: Text(
                               'No Tickets Found',
-                              style: TextStyle(
-                                fontSize: 16,
-                                color: Colors.grey,
-                              ),
+                              style: Fontstyle.openSansRegular16(context)
+                                  .copyWith(color: Colors.grey),
                             ),
                           ),
                         )

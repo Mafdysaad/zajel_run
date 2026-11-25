@@ -1,15 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:zajel_run/auth/widgets/custom_option.dart';
-import 'package:zajel_run/auth/widgets/custom_or.dart';
-import 'package:zajel_run/auth/widgets/custom_remmimber.dart';
 import 'package:zajel_run/auth/widgets/custom_singup.dart';
 import 'package:zajel_run/auth/widgets/police.dart';
-
 import 'package:zajel_run/core/const/colors/colors_app.dart';
 import 'package:zajel_run/core/utils/approutes.dart';
 import 'package:zajel_run/core/utils/fontStryle.dart';
-
 import 'package:zajel_run/widgets/CustomTextField.dart';
 import 'package:zajel_run/widgets/background.dart';
 import 'package:zajel_run/widgets/circuleshap.dart';
@@ -45,11 +40,11 @@ class Sinup extends StatelessWidget {
                 ),
               ],
             ),
-            SizedBox(height: 85),
+            Spacer(),
             Text(
               "Get Started Today",
               textAlign: TextAlign.left,
-              style: Fontstyle.openSansBold19.copyWith(fontSize: 38),
+              style: Fontstyle.openSansBold38(context),
             ),
           ],
         ),
@@ -57,11 +52,23 @@ class Sinup extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             SizedBox(height: 15),
-            CustomTextField(icon: Icons.person_sharp, title: 'Full Name'),
+            CustomTextField(
+              icon: Icons.person_sharp,
+              title: 'Full Name',
+              keyboardtype: TextInputType.text,
+            ),
             SizedBox(height: 20),
-            CustomTextField(icon: Icons.mail_outline, title: 'Email Address'),
+            CustomTextField(
+              icon: Icons.mail_outline,
+              title: 'Email Address',
+              keyboardtype: TextInputType.emailAddress,
+            ),
             SizedBox(height: 20),
-            CustomTextField(icon: Icons.lock, title: 'Password'),
+            CustomTextField(
+              icon: Icons.lock,
+              title: 'Password',
+              keyboardtype: TextInputType.emailAddress,
+            ),
             SizedBox(height: 10),
             CustomAgreementCheckbox(
               onChanged: (value) {},
@@ -79,10 +86,6 @@ class Sinup extends StatelessWidget {
                 context.push(Approutes.kverifyAccount);
               },
             ),
-            CustomOR(),
-            SizedBox(height: 20),
-            Customoption(),
-            SizedBox(height: 30),
             Cusomsingup(
               textone: 'Already Have An Account?',
               textwo: 'Login',

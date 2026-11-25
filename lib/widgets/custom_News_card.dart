@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:zajel_run/core/utils/fontStryle.dart';
+import 'package:zajel_run/core/utils/responsive_size.dart';
 
 class CustomNewsCard extends StatelessWidget {
   final ImageProvider image;
@@ -48,9 +50,8 @@ class CustomNewsCard extends StatelessWidget {
                   title,
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,
-                  style: const TextStyle(
-                    fontSize: 17,
-                    fontWeight: FontWeight.bold,
+                  style: Fontstyle.openSansBold18(context).copyWith(
+                    fontSize: responsivesize(context, fontsize: 17),
                     color: Colors.black87,
                   ),
                 ),
@@ -62,19 +63,14 @@ class CustomNewsCard extends StatelessWidget {
                   children: [
                     Text(
                       'By $author',
-                      style: TextStyle(
-                        fontSize: 14,
-                        color: Colors.grey.shade600,
-                      ),
+                      style: Fontstyle.openSansRegular14(context)
+                          .copyWith(color: Colors.grey.shade600),
                     ),
                     Spacer(),
                     Text(
                       date,
-                      style: const TextStyle(
-                        fontSize: 14,
-                        fontWeight: FontWeight.w600,
-                        color: Color(0xFF17616B),
-                      ),
+                      style: Fontstyle.openSansSemiBold14(context)
+                          .copyWith(color: Color(0xFF17616B)),
                     ),
                   ],
                 ),

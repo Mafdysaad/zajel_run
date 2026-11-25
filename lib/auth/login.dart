@@ -8,6 +8,7 @@ import 'package:zajel_run/auth/widgets/custom_singup.dart';
 import 'package:zajel_run/core/const/colors/colors_app.dart';
 import 'package:zajel_run/core/utils/approutes.dart';
 import 'package:zajel_run/core/utils/fontStryle.dart';
+import 'package:zajel_run/core/utils/responsive_size.dart';
 
 import 'package:zajel_run/widgets/CustomTextField.dart';
 import 'package:zajel_run/widgets/background.dart';
@@ -29,7 +30,7 @@ class LoginPage extends StatelessWidget {
             Text(
               "Welcome Back",
               textAlign: TextAlign.left,
-              style: Fontstyle.openSansBold19.copyWith(fontSize: 38),
+              style: Fontstyle.openSansBold38(context),
             ),
           ],
         ),
@@ -37,9 +38,17 @@ class LoginPage extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             SizedBox(height: 15),
-            CustomTextField(icon: Icons.mail_outline, title: 'Email Address'),
+            CustomTextField(
+              icon: Icons.mail_outline,
+              title: 'Email Address',
+              keyboardtype: TextInputType.emailAddress,
+            ),
             SizedBox(height: 20),
-            CustomTextField(icon: Icons.lock, title: 'Password'),
+            CustomTextField(
+              icon: Icons.lock,
+              title: 'Password',
+              keyboardtype: TextInputType.visiblePassword,
+            ),
             SizedBox(height: 10),
             CustomRememberMe(
               rememberMe: true,
@@ -54,7 +63,9 @@ class LoginPage extends StatelessWidget {
               width: double.infinity,
               textColor: Colors.white,
               title: 'Login',
-              onpressed: () {},
+              onpressed: () {
+                context.push(Approutes.kHomeRoute);
+              },
             ),
             CustomOR(),
             SizedBox(height: 20),

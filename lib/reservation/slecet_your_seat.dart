@@ -22,7 +22,7 @@ class SlecetYourSeat extends StatelessWidget {
         bodyflex: 2,
         child: SafeArea(
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 25),
+            padding: const EdgeInsets.symmetric(horizontal: 20),
             child: Column(
               children: [
                 Header(

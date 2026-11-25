@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:qr_flutter/qr_flutter.dart';
+import 'package:zajel_run/core/utils/fontStryle.dart';
 
 class TestQrPage extends StatelessWidget {
   const TestQrPage({super.key});
@@ -29,10 +30,7 @@ class TestQrPage extends StatelessWidget {
 
           const SizedBox(height: 20),
 
-          const Text(
-            'Booking Confirmed',
-            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-          ),
+          Text('Booking Confirmed', style: Fontstyle.openSansBold20(context)),
 
           const SizedBox(height: 10),
 

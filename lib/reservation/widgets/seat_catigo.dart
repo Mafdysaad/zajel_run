@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:zajel_run/core/const/colors/colors_app.dart';
+import 'package:zajel_run/core/utils/fontStryle.dart';
 
 class SeatCatigo extends StatefulWidget {
   const new({super.key});
@@ -42,10 +43,9 @@ class _SeatCatigoState extends State<SeatCatigo> {
                 ),
                 child: Text(
                   type,
-                  style: TextStyle(
-                    color: isSelected ? Colors.white : Colors.black87,
-                    fontSize: 13,
-                  ),
+                  style: Fontstyle.openSansRegular14(
+                    context,
+                  ).copyWith(color: isSelected ? Colors.white : Colors.black87),
                 ),
               ),
             ),

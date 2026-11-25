@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:zajel_run/core/utils/fontStryle.dart';
 import 'package:zajel_run/reservation/widgets/contact_infor.dart';
 import 'package:zajel_run/reservation/widgets/payment_detials.dart';
 import 'package:zajel_run/reservation/widgets/payment_method.dart';
@@ -21,7 +20,7 @@ class PassanegerDetiails extends StatelessWidget {
         bodyflex: 2,
         child: SafeArea(
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 25),
+            padding: const EdgeInsets.symmetric(horizontal: 20),
             child: Column(
               children: [
                 Header(

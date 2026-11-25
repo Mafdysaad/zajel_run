@@ -22,10 +22,8 @@ class Cusomsingup extends StatelessWidget {
           Text(
             textone,
             textAlign: TextAlign.end,
-            style: Fontstyle.openSansBold19.copyWith(
-              fontSize: 14,
-              color: Colors.black,
-            ),
+            style: Fontstyle.openSansBold14(context)
+                .copyWith(color: Colors.black),
           ),
           InkWell(
             onTap: onTap,
@@ -33,10 +31,8 @@ class Cusomsingup extends StatelessWidget {
               padding: const EdgeInsets.all(5.0),
               child: Text(
                 textwo,
-                style: Fontstyle.openSansBold19.copyWith(
-                  fontSize: 15,
-                  color: Color(0xFF17677A),
-                ),
+                style: Fontstyle.openSansBold15(context)
+                    .copyWith(color: Color(0xFF17677A)),
               ),
             ),
           ),

@@ -12,21 +12,30 @@ class _SplashState extends State<Splash> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Stack(
-        children: [
-          Positioned(
-            bottom: 0,
-            left: 0,
+      body: CustomScrollView(
+        slivers: [
+          SliverToBoxAdapter(
             child: SizedBox(
-              height: 300,
-              width: 300,
-              child: Image.asset(
-                'assets/images/backimage.png',
-                fit: BoxFit.contain,
+              height: MediaQuery.of(context).size.height,
+              child: Stack(
+                children: [
+                  Positioned(
+                    bottom: 0,
+                    left: 0,
+                    child: SizedBox(
+                      height: 300,
+                      width: 300,
+                      child: Image.asset(
+                        'assets/images/backimage.png',
+                        fit: BoxFit.contain,
+                      ),
+                    ),
+                  ),
+                  Positioned.fill(child: Splashbody()),
+                ],
               ),
             ),
           ),
-          Positioned.fill(child: Splashbody()),
         ],
       ),
     );

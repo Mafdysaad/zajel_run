@@ -6,7 +6,8 @@ class Background extends StatelessWidget {
   final Widget? appbarchild;
   final Widget? bodychild;
 
-  final int bodyflex, appbarflex;
+  final int bodyflex;
+  final int appbarflex;
 
   const Background({
     super.key,
@@ -19,43 +20,48 @@ class Background extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final bool useFullContent = child != null;
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        return SizedBox(
+          height: constraints.maxHeight,
+          width: double.infinity,
+          child: Stack(
+            children: [
+              Column(
+                children: [
+                  Expanded(
+                    flex: appbarflex,
+                    child: Container(
+                      width: double.infinity,
+                      color: Color(ColorsApp.appBarColor),
+                      padding: const EdgeInsets.symmetric(horizontal: 30),
+                      child: SafeArea(
+                        child: appbarchild ?? const SizedBox.shrink(),
+                      ),
+                    ),
+                  ),
 
-    final Widget backgroundStack = SizedBox(
-      height: MediaQuery.of(context).size.height,
-      child: Stack(
-        children: [
-          Positioned.fill(
-            child: Column(
-              children: [
-                Expanded(
-                  flex: appbarflex,
-                  child: Container(
-                    width: double.infinity,
-                    color: Color(ColorsApp.appBarColor),
-                    padding: const EdgeInsets.symmetric(horizontal: 30),
-                    child: appbarchild ?? const SizedBox.shrink(),
+                  Expanded(
+                    flex: bodyflex,
+                    child: Container(
+                      width: double.infinity,
+                      color: Color(ColorsApp.bodyColor),
+                      padding: const EdgeInsets.symmetric(horizontal: 30),
+                      child: SingleChildScrollView(
+                        keyboardDismissBehavior:
+                            ScrollViewKeyboardDismissBehavior.manual,
+                        child: bodychild ?? const SizedBox.shrink(),
+                      ),
+                    ),
                   ),
-                ),
-                Expanded(
-                  flex: bodyflex,
-                  child: Container(
-                    width: double.infinity,
-                    color: Color(ColorsApp.bodyColor),
-                    padding: const EdgeInsets.symmetric(horizontal: 30),
-                    child: bodychild ?? const SizedBox.shrink(),
-                  ),
-                ),
-              ],
-            ),
+                ],
+              ),
+
+              if (child != null) SafeArea(child: child!),
+            ],
           ),
-          if (child != null) SafeArea(child: child!),
-        ],
-      ),
+        );
+      },
     );
-
-    return useFullContent
-        ? backgroundStack
-        : SingleChildScrollView(child: backgroundStack);
   }
 }

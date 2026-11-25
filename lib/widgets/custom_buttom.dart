@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:zajel_run/core/utils/fontStryle.dart';
+import 'package:zajel_run/core/utils/responsive_size.dart';
 
 class CustomButtom extends StatelessWidget {
   final Color backgroundColor;
@@ -37,8 +38,8 @@ class CustomButtom extends StatelessWidget {
 
         child: Text(
           title,
-          style: Fontstyle.openSansRegular14.copyWith(
-            fontSize: 18,
+          style: Fontstyle.openSansRegular14(context).copyWith(
+            fontSize: responsivesize(context, fontsize: 18),
             color: textColor,
           ),
         ),

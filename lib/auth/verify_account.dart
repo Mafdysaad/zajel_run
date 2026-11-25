@@ -1,18 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pinput/pinput.dart';
-import 'package:zajel_run/auth/widgets/custom_option.dart';
-import 'package:zajel_run/auth/widgets/custom_or.dart';
-
-import 'package:zajel_run/auth/widgets/custom_singup.dart';
-import 'package:zajel_run/auth/widgets/police.dart';
 import 'package:zajel_run/auth/widgets/resendcodeTimer.dart';
 
 import 'package:zajel_run/core/const/colors/colors_app.dart';
-import 'package:zajel_run/core/utils/approutes.dart';
 import 'package:zajel_run/core/utils/fontStryle.dart';
-
-import 'package:zajel_run/widgets/CustomTextField.dart';
 import 'package:zajel_run/widgets/background.dart';
 import 'package:zajel_run/widgets/circuleshap.dart';
 import 'package:zajel_run/widgets/custom_buttom.dart';
@@ -25,9 +17,15 @@ class VerifyAccount extends StatefulWidget {
 }
 
 class _VerifyAccountState extends State<VerifyAccount> {
-  final TextEditingController otpController = TextEditingController();
+  late TextEditingController otpController;
 
-  final FocusNode otpFocusNode = FocusNode();
+  late FocusNode otpFocusNode;
+  @override
+  void initState() {
+    otpController = TextEditingController();
+    otpFocusNode = FocusNode();
+    super.initState();
+  }
 
   @override
   void dispose() {
@@ -79,11 +77,11 @@ class _VerifyAccountState extends State<VerifyAccount> {
                 ),
               ],
             ),
-            SizedBox(height: 85),
+            Spacer(),
             Text(
               "Verify Your Account",
               textAlign: TextAlign.left,
-              style: Fontstyle.openSansBold19.copyWith(fontSize: 38),
+              style: Fontstyle.openSansBold38(context),
             ),
           ],
         ),

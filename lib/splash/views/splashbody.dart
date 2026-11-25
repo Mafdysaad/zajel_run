@@ -1,5 +1,9 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
-import 'package:zajel_run/core/utils/helperfunction.dart';
+import 'package:go_router/go_router.dart';
+import 'package:zajel_run/core/utils/approutes.dart';
+
 import 'package:zajel_run/splash/views/slidingtext.dart';
 
 class Splashbody extends StatefulWidget {
@@ -13,16 +17,21 @@ class _SplashbodyState extends State<Splashbody>
     with SingleTickerProviderStateMixin {
   late AnimationController controller;
   late Animation<Offset> textanimation;
+  Timer? timer;
   @override
   void initState() {
-    initslidingAnimation();
     super.initState();
-    transition(context);
+    initslidingAnimation();
+    timer = Timer(const Duration(seconds: 5), () {
+      if (!mounted) return;
+      context.go(Approutes.kLogin);
+    });
   }
 
   @override
   void dispose() {
     controller.dispose();
+    timer?.cancel();
     super.dispose();
   }
 
@@ -47,7 +56,7 @@ class _SplashbodyState extends State<Splashbody>
   void initslidingAnimation() {
     controller = AnimationController(
       vsync: this,
-      duration: const Duration(seconds: 2),
+      duration: const Duration(seconds: 3),
     )..forward();
     textanimation = Tween<Offset>(
       begin: const Offset(0, 20),

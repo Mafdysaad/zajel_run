@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:zajel_run/core/utils/responsive_size.dart';
 
 enum SeatStatus { available, selected, booked }
 
@@ -71,7 +72,7 @@ class _BusSeatSelectorState extends State<BusSeatSelector> {
               child: Text(
                 seat,
                 style: TextStyle(
-                  fontSize: fontSize,
+                  fontSize: responsivesize(context, fontsize: fontSize),
                   color: status == SeatStatus.selected
                       ? Colors.white
                       : Colors.black87,
