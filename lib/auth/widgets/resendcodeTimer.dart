@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:zajel_run/l10n/app_localizations.dart';
 
 class ResendCodeTimer extends StatefulWidget {
   final VoidCallback onResend;
@@ -63,10 +64,11 @@ class _ResendCodeTimerState extends State<ResendCodeTimer> {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        const Text("Didn't receive the code? ", style: TextStyle(fontSize: 14)),
+        Text(l10n.didntReceiveTheCode, style: TextStyle(fontSize: 14)),
 
         if (remainingSeconds > 0)
           Text(
@@ -79,8 +81,8 @@ class _ResendCodeTimerState extends State<ResendCodeTimer> {
         else
           TextButton(
             onPressed: resendCode,
-            child: const Text(
-              'Resend Code',
+            child: Text(
+              l10n.resendCode,
               style: TextStyle(
                 color: Color(0xFF246775),
                 fontWeight: FontWeight.bold,

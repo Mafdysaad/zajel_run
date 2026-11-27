@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:zajel_run/core/utils/fontStryle.dart';
+import 'package:zajel_run/l10n/app_localizations.dart';
 
 class HorizontalCalendar extends StatefulWidget {
   final Function(DateTime) onDateSelected;
@@ -13,11 +14,19 @@ class HorizontalCalendar extends StatefulWidget {
 class _HorizontalCalendarState extends State<HorizontalCalendar> {
   DateTime selectedDate = DateTime.now();
 
-  final List<String> days = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
-
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     final today = DateTime.now();
+    final List<String> days = [
+      l10n.mon,
+      l10n.tue,
+      l10n.wed,
+      l10n.thu,
+      l10n.fri,
+      l10n.sat,
+      l10n.sun,
+    ];
 
     return SizedBox(
       height: 95,

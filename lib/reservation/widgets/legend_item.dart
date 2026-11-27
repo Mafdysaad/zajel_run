@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:zajel_run/core/utils/fontStryle.dart';
+import 'package:zajel_run/core/utils/responsive_size.dart';
 
 class LegendItem extends StatelessWidget {
   final String title;
@@ -10,7 +11,7 @@ class LegendItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       mainAxisSize: MainAxisSize.min,
-      spacing: 15,
+      spacing: 5,
       children: [
         SizedBox(
           height: 30,
@@ -25,10 +26,14 @@ class LegendItem extends StatelessWidget {
           ),
         ),
 
-        Text(
-          title,
-          style: Fontstyle.openSansBold14(context)
-              .copyWith(color: Colors.black),
+        FittedBox(
+          child: Text(
+            title,
+            style: Fontstyle.openSansBold14(context).copyWith(
+              color: Colors.black,
+              fontSize: responsivesize(context, fontsize: 13),
+            ),
+          ),
         ),
       ],
     );

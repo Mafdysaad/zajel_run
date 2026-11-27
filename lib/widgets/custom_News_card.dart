@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:zajel_run/core/utils/fontStryle.dart';
 import 'package:zajel_run/core/utils/responsive_size.dart';
+import 'package:zajel_run/core/utils/size_config.dart';
 
 class CustomNewsCard extends StatelessWidget {
   final ImageProvider image;
@@ -32,8 +33,12 @@ class CustomNewsCard extends StatelessWidget {
             borderRadius: BorderRadius.circular(10),
             child: Image(
               image: image,
-              width: 140,
-              height: 115,
+              width: MediaQuery.of(context).size.width > SizeConfig.tablet
+                  ? 300
+                  : 150,
+              height: MediaQuery.of(context).size.width > SizeConfig.tablet
+                  ? 250
+                  : 150,
               fit: BoxFit.cover,
             ),
           ),
@@ -56,23 +61,29 @@ class CustomNewsCard extends StatelessWidget {
                   ),
                 ),
 
-                const SizedBox(height: 40),
+                const Spacer(),
 
                 // Author and Date
-                Row(
-                  children: [
-                    Text(
-                      'By $author',
-                      style: Fontstyle.openSansRegular14(context)
-                          .copyWith(color: Colors.grey.shade600),
-                    ),
-                    Spacer(),
-                    Text(
-                      date,
-                      style: Fontstyle.openSansSemiBold14(context)
-                          .copyWith(color: Color(0xFF17616B)),
-                    ),
-                  ],
+                Flexible(
+                  child: Row(
+                    children: [
+                      Flexible(
+                        child: Text(
+                          'By $author',
+                          overflow: TextOverflow.ellipsis,
+                          style: Fontstyle.openSansRegular14(context)
+                              .copyWith(color: Colors.grey.shade600),
+                        ),
+                      ),
+                      Spacer(),
+                      Text(
+                        date,
+                        overflow: TextOverflow.ellipsis,
+                        style: Fontstyle.openSansSemiBold14(context)
+                            .copyWith(color: Color(0xFF17616B)),
+                      ),
+                    ],
+                  ),
                 ),
               ],
             ),

@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:zajel_run/auth/widgets/custom_singup.dart';
+
 import 'package:zajel_run/core/const/colors/colors_app.dart';
 import 'package:zajel_run/core/utils/approutes.dart';
 import 'package:zajel_run/core/utils/fontStryle.dart';
+import 'package:zajel_run/l10n/app_localizations.dart';
+import 'package:zajel_run/auth/widgets/custom_singup.dart';
 import 'package:zajel_run/widgets/CustomTextField.dart';
 import 'package:zajel_run/widgets/background.dart';
 import 'package:zajel_run/widgets/circuleshap.dart';
@@ -19,8 +21,10 @@ class Forgetpassword extends StatefulWidget {
 class _VerifyAccountState extends State<Forgetpassword> {
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     return Scaffold(
       body: Background(
+        height: 900,
         appbarflex: 1,
         bodyflex: 3,
         appbarchild: Column(
@@ -46,7 +50,7 @@ class _VerifyAccountState extends State<Forgetpassword> {
             ),
             Spacer(),
             Text(
-              "Forgot Password",
+              l10n.forgotPassword,
               textAlign: TextAlign.left,
               style: Fontstyle.openSansBold38(context),
             ),
@@ -57,7 +61,7 @@ class _VerifyAccountState extends State<Forgetpassword> {
           children: [
             SizedBox(height: 40),
             CustomTextField(
-              title: 'Email Address',
+              title: l10n.emailAddress,
               icon: Icons.email_outlined,
               keyboardtype: TextInputType.emailAddress,
             ),
@@ -66,15 +70,15 @@ class _VerifyAccountState extends State<Forgetpassword> {
               backgroundColor: Color(ColorsApp.appBarColor),
               width: double.infinity,
               textColor: Colors.white,
-              title: 'Send Code',
+              title: l10n.sendCode,
               onpressed: () {
                 context.push(Approutes.kverifyAccount);
               },
             ),
             SizedBox(height: 40),
             Cusomsingup(
-              textone: 'Go back to',
-              textwo: 'Login',
+              textone: l10n.goBackTo,
+              textwo: l10n.login,
               onTap: () {
                 context.push(Approutes.kLogin);
               },

@@ -1,18 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:zajel_run/core/const/colors/colors_app.dart';
+import 'package:zajel_run/l10n/app_localizations.dart';
+import 'package:zajel_run/reservation/reservationpage.dart';
 import 'package:zajel_run/widgets/BookingDateField.dart';
-import 'package:zajel_run/widgets/CustomTextField.dart';
+
 import 'package:zajel_run/widgets/custom_buttom.dart';
 import 'package:zajel_run/widgets/drop_down.dart';
-import 'package:zajel_run/reservation/reservationpage.dart';
 
-class Reservationcard extends StatelessWidget {
+class Reservationcard extends StatefulWidget {
   const Reservationcard({super.key});
 
   @override
+  State<Reservationcard> createState() => _ReservationcardState();
+}
+
+class _ReservationcardState extends State<Reservationcard> {
+  bool is_round = true;
+  @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     return Container(
-      height: 500,
+      height: 420,
       decoration: BoxDecoration(
         color: Color(ColorsApp.bodyColor),
         borderRadius: const BorderRadius.only(
@@ -31,16 +39,30 @@ class Reservationcard extends StatelessWidget {
                 spacing: 10,
                 children: [
                   CustomButtom(
-                    backgroundColor: Color(ColorsApp.appBarColor),
-                    textColor: Colors.white,
-                    title: 'One way',
-                    onpressed: () {},
+                    backgroundColor: is_round
+                        ? Color(ColorsApp.appBarColor)
+                        : Color(ColorsApp.backgroundIcon),
+                    textColor: is_round
+                        ? Colors.white
+                        : Color(ColorsApp.blackColor),
+                    title: l10n.roundTrip,
+                    onpressed: () {
+                      setState(() {
+                        is_round = true;
+                      });
+                    },
                   ),
                   CustomButtom(
-                    backgroundColor: Color(ColorsApp.backgroundIcon),
-                    textColor: Color(ColorsApp.blackColor),
-                    title: 'Round Trip',
-                    onpressed: () {},
+                    backgroundColor: is_round
+                        ? Color(ColorsApp.backgroundIcon)
+                        : Color(ColorsApp.appBarColor),
+                    textColor: is_round ? Colors.black : Colors.white,
+                    title: l10n.oneWay,
+                    onpressed: () {
+                      setState(() {
+                        is_round = false;
+                      });
+                    },
                   ),
                 ],
               ),
@@ -50,48 +72,60 @@ class Reservationcard extends StatelessWidget {
               alignment: Alignment.center,
               children: [
                 Column(
+                  spacing: 15,
                   children: [
-                    CustomTextField(
-                      title: 'From',
-                      icon: Icons.send_rounded,
-                      keyboardtype: TextInputType.streetAddress,
+                    DropDownWidget(
+                      items: [
+                        l10n.tima,
+                        l10n.assiut,
+                        l10n.alMohafza,
+                        l10n.alKawamil,
+                      ],
+                      onChanged: (_) {},
+                      selectedItem: l10n.tima,
+                      leadingIcon: Icons.place,
                     ),
-                    SizedBox(height: 20),
-
-                    CustomTextField(
-                      title: 'To',
-                      icon: Icons.location_on_outlined,
-                      keyboardtype: TextInputType.streetAddress,
+                    DropDownWidget(
+                      items: [
+                        l10n.alKawamil,
+                        l10n.assiut,
+                        l10n.alMohafza,
+                        l10n.tima,
+                      ],
+                      onChanged: (_) {},
+                      selectedItem: l10n.alKawamil,
+                      leadingIcon: Icons.place,
                     ),
                   ],
                 ),
 
-                Positioned(
+                Positioned.directional(
+                  textDirection: TextDirection.rtl,
                   top: 40,
-                  right: 30,
+                  end: 30,
                   child: Container(
-                    padding: EdgeInsets.all(8),
+                    padding: EdgeInsets.all(10),
                     decoration: BoxDecoration(
-                      color: Colors.white,
+                      color: is_round
+                          ? Color(ColorsApp.appBarColor)
+                          : Colors.white,
                       shape: BoxShape.circle,
                       border: Border.all(color: Colors.grey),
                     ),
-                    child: Icon(Icons.swap_vert),
+                    child: Icon(
+                      Icons.swap_vert,
+                      color: is_round ? Colors.white : Colors.black,
+                      size: 30,
+                    ),
                   ),
                 ),
               ],
             ),
             BookingDateField(),
-            DropDownWidget(
-              items: ['S Class', 'F Class', 'B Class'],
-              onChanged: (_) {},
-              selectedItem: 'S Class',
-              leadingIcon: Icons.chair_outlined,
-            ),
             CustomButtom(
               backgroundColor: Color(ColorsApp.appBarColor),
               textColor: Colors.white,
-              title: 'Search Ticket',
+              title: l10n.searchTicket,
               width: double.infinity,
               onpressed: () {
                 Navigator.push(

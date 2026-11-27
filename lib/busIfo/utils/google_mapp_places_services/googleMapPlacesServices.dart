@@ -1,7 +1,6 @@
 import 'dart:convert';
 
 import 'package:http/http.dart' as http;
-
 import 'package:zajel_run/busIfo/modle/destination_modle/destination_modle.dart';
 import 'package:zajel_run/busIfo/modle/location_modle/location_modle.dart';
 import 'package:zajel_run/busIfo/modle/place_datils_modle/place_datils_modle.dart';

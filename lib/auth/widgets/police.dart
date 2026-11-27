@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:zajel_run/core/utils/responsive_size.dart';
+import 'package:zajel_run/l10n/app_localizations.dart';
 
 class CustomAgreementCheckbox extends StatelessWidget {
   final bool value;
@@ -16,9 +18,10 @@ class CustomAgreementCheckbox extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const linkStyle = TextStyle(
+    final l10n = AppLocalizations.of(context)!;
+    final linkStyle = TextStyle(
       color: Color(0xFF246775),
-      fontSize: 14,
+      fontSize: responsivesize(context, fontsize: 15),
       fontWeight: FontWeight.w600,
       decoration: TextDecoration.underline,
     );
@@ -46,24 +49,30 @@ class CustomAgreementCheckbox extends StatelessWidget {
           child: Wrap(
             crossAxisAlignment: WrapCrossAlignment.center,
             children: [
-              const Text(
-                'I agree ',
-                style: TextStyle(fontSize: 14, color: Colors.black87),
+              Text(
+                l10n.iAgree,
+                style: TextStyle(
+                  fontSize: responsivesize(context, fontsize: 15),
+                  color: Colors.black87,
+                ),
               ),
 
               InkWell(
                 onTap: onPrivacyTap,
-                child: const Text('Privacy Policy', style: linkStyle),
+                child: Text(l10n.privacyPolicy, style: linkStyle),
               ),
 
-              const Text(
-                ' and ',
-                style: TextStyle(fontSize: 14, color: Colors.black87),
+              Text(
+                l10n.and,
+                style: TextStyle(
+                  fontSize: responsivesize(context, fontsize: 15),
+                  color: Colors.black87,
+                ),
               ),
 
               InkWell(
                 onTap: onAgreementTap,
-                child: const Text('User Agreement', style: linkStyle),
+                child: Text(l10n.userAgreement, style: linkStyle),
               ),
             ],
           ),

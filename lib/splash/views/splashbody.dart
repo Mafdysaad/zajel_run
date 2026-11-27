@@ -3,7 +3,6 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:zajel_run/core/utils/approutes.dart';
-
 import 'package:zajel_run/splash/views/slidingtext.dart';
 
 class Splashbody extends StatefulWidget {

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:zajel_run/core/utils/responsive_size.dart';
+import 'package:zajel_run/l10n/app_localizations.dart';
 
 class CustomTicketTabs extends StatefulWidget {
   final Function(int index) onTabChanged;
@@ -13,10 +14,10 @@ class CustomTicketTabs extends StatefulWidget {
 class _CustomTicketTabsState extends State<CustomTicketTabs> {
   int selectedIndex = 0;
 
-  final List<String> tabs = ['Ongoing', 'Completed', 'Cancelled'];
-
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
+    final List<String> tabs = [l10n.ongoing, l10n.completed, l10n.cancelled];
     return Row(
       children: List.generate(tabs.length, (index) {
         final isSelected = selectedIndex == index;

@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pinput/pinput.dart';
-import 'package:zajel_run/auth/widgets/resendcodeTimer.dart';
 
 import 'package:zajel_run/core/const/colors/colors_app.dart';
 import 'package:zajel_run/core/utils/fontStryle.dart';
+import 'package:zajel_run/l10n/app_localizations.dart';
+import 'package:zajel_run/auth/widgets/resendcodeTimer.dart';
 import 'package:zajel_run/widgets/background.dart';
 import 'package:zajel_run/widgets/circuleshap.dart';
 import 'package:zajel_run/widgets/custom_buttom.dart';
@@ -36,6 +37,7 @@ class _VerifyAccountState extends State<VerifyAccount> {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     final defaultPinTheme = PinTheme(
       width: 60,
       height: 62,
@@ -54,6 +56,7 @@ class _VerifyAccountState extends State<VerifyAccount> {
 
     return Scaffold(
       body: Background(
+        height: 900,
         appbarflex: 1,
         bodyflex: 3,
         appbarchild: Column(
@@ -79,7 +82,7 @@ class _VerifyAccountState extends State<VerifyAccount> {
             ),
             Spacer(),
             Text(
-              "Verify Your Account",
+              l10n.verifyYourAccount,
               textAlign: TextAlign.left,
               style: Fontstyle.openSansBold38(context),
             ),
@@ -115,7 +118,7 @@ class _VerifyAccountState extends State<VerifyAccount> {
               backgroundColor: Color(ColorsApp.appBarColor),
               width: double.infinity,
               textColor: Colors.white,
-              title: 'Verify',
+              title: l10n.verify,
               onpressed: () {},
             ),
           ],

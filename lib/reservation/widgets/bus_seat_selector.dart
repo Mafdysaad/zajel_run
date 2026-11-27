@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:zajel_run/core/utils/responsive_size.dart';
+import 'package:zajel_run/l10n/app_localizations.dart';
 
 enum SeatStatus { available, selected, booked }
 
@@ -13,7 +14,10 @@ class BusSeatSelector extends StatefulWidget {
 class _BusSeatSelectorState extends State<BusSeatSelector> {
   final Color availableColor = const Color(0xFFF1F4FC);
   final Color selectedColor = const Color(0xFF00616D);
-  final Color bookedColor = const Color(0xFFFF922E);
+
+  // Booked seat colors
+  final Color bookedColor = const Color(0xFFE5E7EB);
+  final Color bookedTextColor = const Color(0xFF6B7280);
 
   final List<String> rows = ['A', 'B', 'C', 'D', 'E', 'F', 'G'];
 
@@ -55,6 +59,9 @@ class _BusSeatSelectorState extends State<BusSeatSelector> {
 
   Widget buildSeat(String seat, double fontSize) {
     final status = seats[seat] ?? SeatStatus.available;
+
+    final l10n = AppLocalizations.of(context)!;
+
     return Expanded(
       child: AspectRatio(
         aspectRatio: 1,
@@ -68,15 +75,26 @@ class _BusSeatSelectorState extends State<BusSeatSelector> {
               decoration: BoxDecoration(
                 color: getSeatColor(status),
                 borderRadius: BorderRadius.circular(10),
+                border: status == SeatStatus.booked
+                    ? Border.all(color: const Color(0xFFD1D5DB), width: 1)
+                    : null,
               ),
-              child: Text(
-                seat,
-                style: TextStyle(
-                  fontSize: responsivesize(context, fontsize: fontSize),
-                  color: status == SeatStatus.selected
-                      ? Colors.white
-                      : Colors.black87,
-                  fontWeight: FontWeight.w500,
+              child: FittedBox(
+                fit: BoxFit.scaleDown,
+                child: Text(
+                  status == SeatStatus.booked ? l10n.booked : seat,
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontSize: status == SeatStatus.booked
+                        ? fontSize - 2
+                        : responsivesize(context, fontsize: fontSize),
+                    color: status == SeatStatus.selected
+                        ? Colors.white
+                        : status == SeatStatus.booked
+                        ? bookedTextColor
+                        : Colors.black87,
+                    fontWeight: FontWeight.w600,
+                  ),
                 ),
               ),
             ),
@@ -110,19 +128,51 @@ class _BusSeatSelectorState extends State<BusSeatSelector> {
     return LayoutBuilder(
       builder: (context, constraints) {
         final width = constraints.maxWidth;
-
         final fontSize = width < 350 ? 11.0 : 14.0;
-        return Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            const SizedBox(height: 22),
-            ...rows.map(
-              (row) => Padding(
-                padding: const EdgeInsets.only(bottom: 10),
-                child: buildSeatRow(row, fontSize),
+
+        return Center(
+          child: SizedBox(
+            width: width * 0.90,
+
+            child: AspectRatio(
+              // عدّل النسبة حسب أبعاد صورة الأتوبيس
+              aspectRatio: 0.5,
+
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(20),
+
+                child: Stack(
+                  fit: StackFit.expand,
+                  children: [
+                    // Bus frame
+                    Image.asset(
+                      'assets/images/bus_seats_bg.png',
+                      fit: BoxFit.fill,
+                    ),
+
+                    // Seats area
+                    Positioned.fill(
+                      child: Padding(
+                        padding: EdgeInsets.only(
+                          top: width * 0.5,
+                          bottom: width * 0.15,
+                          left: width * 0.12,
+                          right: width * 0.14,
+                        ),
+
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: rows.map((row) {
+                            return buildSeatRow(row, fontSize);
+                          }).toList(),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
-          ],
+          ),
         );
       },
     );

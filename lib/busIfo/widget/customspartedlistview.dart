@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'package:zajel_run/busIfo/modle/place_datils_modle/place_datils_modle.dart';
 import 'package:zajel_run/busIfo/modle/placesmodle/places_modle/places_modle.dart';
 import 'package:zajel_run/busIfo/utils/map_services.dart';

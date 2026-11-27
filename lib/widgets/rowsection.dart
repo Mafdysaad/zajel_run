@@ -12,13 +12,14 @@ class Rowsection extends StatelessWidget {
         Expanded(
           child: Text(
             title,
+            overflow: TextOverflow.ellipsis,
             style: Fontstyle.openSansRegular14(context)
                 .copyWith(color: Colors.grey.shade600),
           ),
         ),
         Text(
           leading,
-          style: Fontstyle.openSansBold18(context)
+          style: Fontstyle.openSansSemiBold14(context)
               .copyWith(color: Color(0xFF18202E)),
         ),
       ],

@@ -16,13 +16,12 @@ class Cusomsingup extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(bottom: 35, top: 15),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
+      child: Wrap(
         children: [
           Text(
             textone,
             textAlign: TextAlign.end,
-            style: Fontstyle.openSansBold14(context)
+            style: Fontstyle.openSansBold19(context)
                 .copyWith(color: Colors.black),
           ),
           InkWell(
@@ -31,7 +30,7 @@ class Cusomsingup extends StatelessWidget {
               padding: const EdgeInsets.all(5.0),
               child: Text(
                 textwo,
-                style: Fontstyle.openSansBold15(context)
+                style: Fontstyle.openSansBold19(context)
                     .copyWith(color: Color(0xFF17677A)),
               ),
             ),

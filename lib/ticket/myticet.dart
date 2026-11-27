@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:zajel_run/core/utils/fontStryle.dart';
-
+import 'package:zajel_run/l10n/app_localizations.dart';
 import 'package:zajel_run/ticket/modles/ticketmodel.dart';
-import 'package:zajel_run/ticket/widgets/ticetdatiels.dart';
 import 'package:zajel_run/ticket/widgets/TicketCard.dart';
-
 import 'package:zajel_run/ticket/widgets/customtickettabs.dart';
 import 'package:zajel_run/ticket/widgets/header.dart';
+import 'package:zajel_run/ticket/widgets/ticetdatiels.dart';
+import 'package:zajel_run/widgets/background.dart';
 
 class MyTeicet extends StatefulWidget {
   final VoidCallback onPressed;
@@ -23,7 +23,7 @@ class _MyTeicetState extends State<MyTeicet> {
     TicketModel(
       companyName: 'Jahanabad Express',
       seatClass: 'S Chair',
-      seatNumber: 'D1,D2',
+      seatNumber: 'A1',
       fromCode: 'DHK',
       fromCity: 'Dhaka',
       toCode: 'KHL',
@@ -48,15 +48,30 @@ class _MyTeicetState extends State<MyTeicet> {
       arrivalDate: '11 Aug, 2025',
       duration: '3h 45m',
     ),
+
+    TicketModel(
+      companyName: 'Jahanabad Express',
+      seatClass: 'S Chair',
+      seatNumber: 'A1',
+      fromCode: 'DHK',
+      fromCity: 'Dhaka',
+      toCode: 'KHL',
+      toCity: 'Khulna',
+      departureTime: '08:00 PM',
+      arrivalTime: '11:45 PM',
+      departureDate: '11 Aug, 2025',
+      arrivalDate: '11 Aug, 2025',
+      duration: '3h 45m',
+    ),
   ];
 
   final List<TicketModel> completedTickets = [
     TicketModel(
       companyName: 'Jahanabad Express',
-      seatClass: 'S Chair',
+      seatClass: 'A',
       seatNumber: 'D1,D2',
-      fromCode: 'DHK',
-      fromCity: 'Dhaka',
+      fromCode: "طما",
+      fromCity: 'أسيوط',
       toCode: 'KHL',
       toCity: 'Khulna',
       departureTime: '08:00 PM',
@@ -84,69 +99,72 @@ class _MyTeicetState extends State<MyTeicet> {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 25),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          // Header
-          Header(title: 'My ticket', onPressed: widget.onPressed),
-
-          const SizedBox(height: 30),
-
-          Expanded(
-            child: CustomScrollView(
-              slivers: [
-                SliverToBoxAdapter(
-                  child: Column(
-                    children: [
-                      // Tabs
-                      CustomTicketTabs(
-                        onTabChanged: (val) {
-                          setState(() {
-                            selectedIndex = val;
-                          });
-                        },
+    final l10n = AppLocalizations.of(context)!;
+    return Background(
+      height: 900,
+      appbarflex: 1,
+      bodyflex: 2,
+      overlayChild: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 20),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              // Header
+              Header(title: l10n.myTicket, onPressed: widget.onPressed),
+              const SizedBox(height: 30),
+              CustomTicketTabs(
+                onTabChanged: (val) {
+                  setState(() {
+                    selectedIndex = val;
+                  });
+                },
+              ),
+              const SizedBox(height: 20),
+              Expanded(
+                child: CustomScrollView(
+                  slivers: [
+                    SliverToBoxAdapter(
+                      child: Column(
+                        children: [
+                          if (currentTickets.isEmpty)
+                            Padding(
+                              padding: EdgeInsets.symmetric(vertical: 40),
+                              child: Center(
+                                child: Text(
+                                  'No Tickets Found',
+                                  style: Fontstyle.openSansRegular16(context)
+                                      .copyWith(color: Colors.grey),
+                                ),
+                              ),
+                            )
+                          else
+                            ...currentTickets.map(
+                              (ticket) => Padding(
+                                padding: const EdgeInsets.only(bottom: 20),
+                                child: InkWell(
+                                  onTap: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) =>
+                                            const Ticetdatiels(),
+                                      ),
+                                    );
+                                  },
+                                  child: TicketCard(ticket: ticket),
+                                ),
+                              ),
+                            ),
+                        ],
                       ),
-
-                      const SizedBox(height: 20),
-
-                      // Tickets
-                      if (currentTickets.isEmpty)
-                        Padding(
-                          padding: EdgeInsets.symmetric(vertical: 40),
-                          child: Center(
-                            child: Text(
-                              'No Tickets Found',
-                              style: Fontstyle.openSansRegular16(context)
-                                  .copyWith(color: Colors.grey),
-                            ),
-                          ),
-                        )
-                      else
-                        ...currentTickets.map(
-                          (ticket) => Padding(
-                            padding: const EdgeInsets.only(bottom: 20),
-                            child: InkWell(
-                              onTap: () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) => const Ticetdatiels(),
-                                  ),
-                                );
-                              },
-                              child: TicketCard(ticket: ticket),
-                            ),
-                          ),
-                        ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
-        ],
+        ),
       ),
     );
   }

@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:zajel_run/auth/widgets/custom_option.dart';
-import 'package:zajel_run/auth/widgets/custom_or.dart';
-import 'package:zajel_run/auth/widgets/custom_remmimber.dart';
-import 'package:zajel_run/auth/widgets/custom_singup.dart';
 
 import 'package:zajel_run/core/const/colors/colors_app.dart';
 import 'package:zajel_run/core/utils/approutes.dart';
 import 'package:zajel_run/core/utils/fontStryle.dart';
-import 'package:zajel_run/core/utils/responsive_size.dart';
+
+import 'package:zajel_run/l10n/app_localizations.dart';
+import 'package:zajel_run/auth/widgets/custom_option.dart';
+import 'package:zajel_run/auth/widgets/custom_or.dart';
+import 'package:zajel_run/auth/widgets/custom_remmimber.dart';
+import 'package:zajel_run/auth/widgets/custom_singup.dart';
 
 import 'package:zajel_run/widgets/CustomTextField.dart';
 import 'package:zajel_run/widgets/background.dart';
@@ -19,8 +20,10 @@ class LoginPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     return Scaffold(
       body: Background(
+        height: 900,
         appbarflex: 1,
         bodyflex: 3,
         appbarchild: Column(
@@ -28,7 +31,7 @@ class LoginPage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
             Text(
-              "Welcome Back",
+              l10n.welcomeBack,
               textAlign: TextAlign.left,
               style: Fontstyle.openSansBold38(context),
             ),
@@ -40,13 +43,13 @@ class LoginPage extends StatelessWidget {
             SizedBox(height: 15),
             CustomTextField(
               icon: Icons.mail_outline,
-              title: 'Email Address',
+              title: l10n.emailAddress,
               keyboardtype: TextInputType.emailAddress,
             ),
             SizedBox(height: 20),
             CustomTextField(
               icon: Icons.lock,
-              title: 'Password',
+              title: l10n.password,
               keyboardtype: TextInputType.visiblePassword,
             ),
             SizedBox(height: 10),
@@ -62,7 +65,7 @@ class LoginPage extends StatelessWidget {
               backgroundColor: Color(ColorsApp.appBarColor),
               width: double.infinity,
               textColor: Colors.white,
-              title: 'Login',
+              title: l10n.login,
               onpressed: () {
                 context.push(Approutes.kHomeRoute);
               },
@@ -72,8 +75,8 @@ class LoginPage extends StatelessWidget {
             Customoption(),
             SizedBox(height: 30),
             Cusomsingup(
-              textone: 'Don\'t Have An Account?',
-              textwo: 'Create An Account',
+              textone: l10n.dontHaveAnAccount,
+              textwo: l10n.createAccount,
               onTap: () {
                 context.push(Approutes.kSinup);
               },

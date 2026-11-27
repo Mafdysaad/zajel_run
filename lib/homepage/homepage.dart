@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:zajel_run/core/const/colors/colors_app.dart' show ColorsApp;
 import 'package:zajel_run/core/utils/fontStryle.dart';
 
-import 'package:zajel_run/homepage/widgets/customappbar.dart';
+import 'package:zajel_run/l10n/app_localizations.dart';
 import 'package:zajel_run/homepage/widgets/advertisements.dart';
+import 'package:zajel_run/homepage/widgets/customappbar.dart';
 import 'package:zajel_run/homepage/widgets/reservationCard.dart';
+import 'package:zajel_run/widgets/background.dart';
 
 class Homepage extends StatefulWidget {
   const Homepage({super.key});
@@ -16,49 +18,49 @@ class Homepage extends StatefulWidget {
 class _HomepageState extends State<Homepage> {
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 20),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Customappbar(),
-          const SizedBox(height: 25),
-          Expanded(
-            child: CustomScrollView(
-              slivers: [
-                SliverToBoxAdapter(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
+    final l10n = AppLocalizations.of(context)!;
+    return Background(
+      height: 890,
+      appbarflex: 2,
+      bodyflex: 3,
+      overlayChild: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 20),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Customappbar(),
+              const SizedBox(height: 25),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    l10n.letsBookYourNextTrip,
+                    style: Fontstyle.openSansBold30(context),
+                  ),
+                  const SizedBox(height: 20),
+                  Reservationcard(),
+                  Row(
                     children: [
                       Text(
-                        "Let's book Your \nNext Trip!",
-                        style: Fontstyle.openSansBold30(context),
+                        l10n.hotNews,
+                        style: Fontstyle.openSansBold23(context)
+                            .copyWith(color: Color(ColorsApp.blackColor)),
                       ),
-                      const SizedBox(height: 20),
-                      Reservationcard(),
-                      Row(
-                        children: [
-                          Text(
-                            'Hot News',
-                            style: Fontstyle.openSansBold23(context)
-                                .copyWith(color: Color(ColorsApp.blackColor)),
-                          ),
-                          Spacer(),
-                          Text(
-                            'See All',
-                            style: Fontstyle.openSansBold18(context)
-                                .copyWith(color: Color(ColorsApp.appBarColor)),
-                          ),
-                        ],
+                      Spacer(),
+                      Text(
+                        l10n.seeAll,
+                        style: Fontstyle.openSansBold18(context)
+                            .copyWith(color: Color(ColorsApp.appBarColor)),
                       ),
-                      Advertisements(),
                     ],
                   ),
-                ),
-              ],
-            ),
+                  Advertisements(),
+                ],
+              ),
+            ],
           ),
-        ],
+        ),
       ),
     );
   }

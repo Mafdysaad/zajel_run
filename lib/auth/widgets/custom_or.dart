@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:zajel_run/core/const/colors/colors_app.dart';
+import 'package:zajel_run/core/utils/fontStryle.dart';
+import 'package:zajel_run/l10n/app_localizations.dart';
 
 class CustomOR extends StatelessWidget {
   const CustomOR({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     return Container(
       padding: const EdgeInsets.only(top: 25, bottom: 15),
       child: Row(
@@ -20,8 +23,9 @@ class CustomOR extends StatelessWidget {
             ),
           ),
           Text(
-            'Or Continue With',
-            style: Theme.of(context).textTheme.bodyMedium,
+            l10n.orContinueWith,
+            style: Fontstyle.openSansBold19(context)
+                .copyWith(color: Colors.black),
           ),
           const Expanded(
             flex: 2,

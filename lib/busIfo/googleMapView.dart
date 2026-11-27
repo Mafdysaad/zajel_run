@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:location/location.dart';
 import 'package:uuid/uuid.dart';
-
 import 'package:zajel_run/busIfo/modle/destination_modle/destination_modle.dart';
 import 'package:zajel_run/busIfo/modle/location_modle/location_modle.dart';
 import 'package:zajel_run/busIfo/modle/placesmodle/places_modle/places_modle.dart';
@@ -203,7 +202,6 @@ class _GooglemapviewState extends State<Googlemapview> {
     );
   }
 
-  // عرض المسارات
   void desplyroute() {
     pointofroute.clear();
 
@@ -229,7 +227,6 @@ class _GooglemapviewState extends State<Googlemapview> {
     setState(() {});
   }
 
-  // بدء حركة الباص
   void startBus() {
     if (mapServices.pointes.isEmpty ||
         selected_route >= mapServices.pointes.length) {
@@ -260,7 +257,6 @@ class _GooglemapviewState extends State<Googlemapview> {
     moveBus();
   }
 
-  // إيقاف الحركة
   void stopBus() {
     busTimer?.cancel();
 
@@ -271,7 +267,6 @@ class _GooglemapviewState extends State<Googlemapview> {
     }
   }
 
-  // تحريك الباص بين نقاط المسار
   void moveBus() {
     busTimer?.cancel();
 
@@ -316,7 +311,6 @@ class _GooglemapviewState extends State<Googlemapview> {
     });
   }
 
-  // حساب الموقع بين نقطتين
   LatLng interpolate(LatLng start, LatLng end, double fraction) {
     return LatLng(
       start.latitude + (end.latitude - start.latitude) * fraction,
@@ -324,7 +318,6 @@ class _GooglemapviewState extends State<Googlemapview> {
     );
   }
 
-  // حساب اتجاه الباص
   double calculateBearing(LatLng start, LatLng end) {
     final lat1 = start.latitude * math.pi / 180;
     final lat2 = end.latitude * math.pi / 180;
@@ -342,7 +335,6 @@ class _GooglemapviewState extends State<Googlemapview> {
     return (bearing * 180 / math.pi + 360) % 360;
   }
 
-  // تحديث Marker الباص
   void updateBusMarker() {
     if (currentBusPosition == null || !mounted) return;
 

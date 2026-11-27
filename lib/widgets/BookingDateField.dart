@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_datepicker/datepicker.dart';
 import 'package:zajel_run/core/const/colors/colors_app.dart';
+import 'package:zajel_run/core/utils/responsive_size.dart';
 
 class BookingDateField extends StatefulWidget {
   const BookingDateField({super.key});
@@ -19,18 +20,18 @@ class _BookingDateFieldState extends State<BookingDateField> {
         DateTime tempDate = selectedDate;
 
         return AlertDialog(
-          contentPadding: const EdgeInsets.all(12),
+          contentPadding: const EdgeInsets.all(10),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(20),
           ),
           content: SizedBox(
-            width: 350,
+            width: double.infinity,
             child: SfDateRangePicker(
               view: DateRangePickerView.month,
               selectionMode: DateRangePickerSelectionMode.single,
               minDate: DateTime.now(),
               initialSelectedDate: selectedDate,
-              selectionColor: Colors.orange,
+              selectionColor: Color(ColorsApp.appBarColor),
               todayHighlightColor: Colors.deepOrange,
               onSelectionChanged: (args) {
                 tempDate = args.value as DateTime;
@@ -46,7 +47,7 @@ class _BookingDateFieldState extends State<BookingDateField> {
             ),
             ElevatedButton(
               style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.orange,
+                backgroundColor: Color(ColorsApp.appBarColor),
                 foregroundColor: Colors.white,
               ),
               onPressed: () {
@@ -73,8 +74,16 @@ class _BookingDateFieldState extends State<BookingDateField> {
       borderRadius: BorderRadius.circular(15),
       child: InputDecorator(
         decoration: InputDecoration(
-          focusColor: Color(ColorsApp.normalDayColor),
+          focusColor: Colors.blue,
+          enabledBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(12),
+            borderSide: const BorderSide(color: Colors.grey),
+          ),
           hintText: 'Departure Datr',
+          focusedBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(12),
+            borderSide: const BorderSide(color: Colors.blue, width: 1.5),
+          ),
           prefixIcon: const Icon(
             Icons.calendar_month,
             color: Color(ColorsApp.appBarColor),
@@ -84,7 +93,11 @@ class _BookingDateFieldState extends State<BookingDateField> {
         child: Text(
           MaterialLocalizations.of(context).formatMediumDate(selectedDate),
           textDirection: TextDirection.rtl,
-          style: const TextStyle(fontSize: 16, color: Colors.black87),
+          overflow: TextOverflow.ellipsis,
+          style: TextStyle(
+            fontSize: responsivesize(context, fontsize: 15),
+            color: Colors.black87,
+          ),
         ),
       ),
     );

@@ -30,15 +30,12 @@ class DropDownWidget extends StatelessWidget {
 
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12),
-          borderSide: BorderSide(
-            color: Color(ColorsApp.normalDayColor),
-            width: 2,
-          ),
+          borderSide: const BorderSide(color: Colors.blue, width: 1.5),
         ),
 
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12),
-          borderSide: BorderSide(color: Color(ColorsApp.normalDayColor)),
+          borderSide: const BorderSide(color: Colors.grey),
         ),
 
         border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),

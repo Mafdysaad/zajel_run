@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:zajel_run/core/utils/fontStryle.dart';
+import 'package:zajel_run/l10n/app_localizations.dart';
 import 'package:zajel_run/ticket/modles/ticketmodel.dart';
 
 class Slectedticketcard extends StatelessWidget {
@@ -11,6 +12,7 @@ class Slectedticketcard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     return Container(
       decoration: BoxDecoration(
         color: Colors.white,
@@ -77,7 +79,12 @@ class Slectedticketcard extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    _time('Type', 'One Way', CrossAxisAlignment.start, context),
+                    _time(
+                      l10n.type,
+                      l10n.oneWay,
+                      CrossAxisAlignment.start,
+                      context,
+                    ),
 
                     _time(
                       ticket.arrivalTime,
@@ -91,7 +98,7 @@ class Slectedticketcard extends StatelessWidget {
                 const SizedBox(height: 14),
 
                 Text(
-                  'Duration ${ticket.duration}',
+                  '${l10n.duration} ${ticket.duration}',
                   style: Fontstyle.openSansRegular14(context)
                       .copyWith(color: Colors.grey.shade600),
                 ),

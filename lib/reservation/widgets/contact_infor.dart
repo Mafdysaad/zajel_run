@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:zajel_run/core/utils/fontStryle.dart';
+import 'package:zajel_run/l10n/app_localizations.dart';
 
 class ContactInfor extends StatelessWidget {
   const new({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     return Container(
       decoration: BoxDecoration(
         color: Colors.white,
@@ -21,7 +23,7 @@ class ContactInfor extends StatelessWidget {
               children: [
                 Expanded(
                   child: Text(
-                    "Email Address",
+                    l10n.emailAddress,
                     style: Fontstyle.openSansRegular18(context)
                         .copyWith(color: Colors.grey.shade600),
                   ),
@@ -40,32 +42,13 @@ class ContactInfor extends StatelessWidget {
               children: [
                 Expanded(
                   child: Text(
-                    "Phone Number",
+                    l10n.phonenumber,
                     style: Fontstyle.openSansRegular18(context)
                         .copyWith(color: Colors.grey.shade600),
                   ),
                 ),
                 Text(
                   '01022102989',
-                  style: Fontstyle.openSansBold15(context)
-                      .copyWith(color: Color(0xFF18202E)),
-                ),
-              ],
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(18),
-            child: Row(
-              children: [
-                Expanded(
-                  child: Text(
-                    "Identity Number",
-                    style: Fontstyle.openSansRegular18(context)
-                        .copyWith(color: Colors.grey.shade600),
-                  ),
-                ),
-                Text(
-                  '12345678910112',
                   style: Fontstyle.openSansBold15(context)
                       .copyWith(color: Color(0xFF18202E)),
                 ),

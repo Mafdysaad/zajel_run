@@ -1,4 +1,7 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
+import 'package:zajel_run/l10n/app_localizations.dart';
 
 class CustomRememberMe extends StatelessWidget {
   final bool rememberMe;
@@ -14,6 +17,7 @@ class CustomRememberMe extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
@@ -36,8 +40,8 @@ class CustomRememberMe extends StatelessWidget {
               ),
             ),
             const SizedBox(width: 5),
-            const Text(
-              'Remember Me',
+            Text(
+              l10n.rememberMe,
               style: TextStyle(fontSize: 15, color: Color(0xFF444444)),
             ),
           ],
@@ -45,8 +49,8 @@ class CustomRememberMe extends StatelessWidget {
 
         GestureDetector(
           onTap: onForgotPasswordTap,
-          child: const Text(
-            'Forgot Password',
+          child: Text(
+            l10n.forgotPassword,
             style: TextStyle(
               fontSize: 16,
               color: Color(0xFF17677A),

@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:zajel_run/auth/widgets/custom_singup.dart';
-import 'package:zajel_run/auth/widgets/police.dart';
 import 'package:zajel_run/core/const/colors/colors_app.dart';
 import 'package:zajel_run/core/utils/approutes.dart';
 import 'package:zajel_run/core/utils/fontStryle.dart';
+import 'package:zajel_run/auth/widgets/custom_singup.dart';
+import 'package:zajel_run/auth/widgets/police.dart';
+import 'package:zajel_run/l10n/app_localizations.dart';
 import 'package:zajel_run/widgets/CustomTextField.dart';
 import 'package:zajel_run/widgets/background.dart';
 import 'package:zajel_run/widgets/circuleshap.dart';
@@ -15,8 +16,10 @@ class Sinup extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     return Scaffold(
       body: Background(
+        height: 900,
         appbarflex: 1,
         bodyflex: 3,
         appbarchild: Column(
@@ -42,7 +45,7 @@ class Sinup extends StatelessWidget {
             ),
             Spacer(),
             Text(
-              "Get Started Today",
+              l10n.getStartedToday,
               textAlign: TextAlign.left,
               style: Fontstyle.openSansBold38(context),
             ),
@@ -54,19 +57,19 @@ class Sinup extends StatelessWidget {
             SizedBox(height: 15),
             CustomTextField(
               icon: Icons.person_sharp,
-              title: 'Full Name',
+              title: l10n.fullName,
               keyboardtype: TextInputType.text,
             ),
             SizedBox(height: 20),
             CustomTextField(
               icon: Icons.mail_outline,
-              title: 'Email Address',
+              title: l10n.emailAddress,
               keyboardtype: TextInputType.emailAddress,
             ),
             SizedBox(height: 20),
             CustomTextField(
               icon: Icons.lock,
-              title: 'Password',
+              title: l10n.password,
               keyboardtype: TextInputType.emailAddress,
             ),
             SizedBox(height: 10),
@@ -81,14 +84,14 @@ class Sinup extends StatelessWidget {
               backgroundColor: Color(ColorsApp.appBarColor),
               width: double.infinity,
               textColor: Colors.white,
-              title: 'Create Account',
+              title: l10n.createAccount,
               onpressed: () {
                 context.push(Approutes.kverifyAccount);
               },
             ),
             Cusomsingup(
-              textone: 'Already Have An Account?',
-              textwo: 'Login',
+              textone: l10n.alreadyHaveAnAccount,
+              textwo: l10n.login,
               onTap: () {
                 context.push(Approutes.kLogin);
               },
